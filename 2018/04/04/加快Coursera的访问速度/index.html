@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 
 
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+  
+
+
 
   
 
@@ -56,10 +60,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
 
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -79,21 +81,21 @@
 
 
 
-<meta name="description" content="使用PAC自动模式的话，ss自带的PAC里并没有coursera，需要编辑PAC用户自定义规则。追加两条规则（第一条是对Coursera的代理，第二条是对视频等资源的cdn的代理）。 打开shadowsocks安装目录下的pac.txt文件， 在rules中添加coursera.org和cloudfront.net两个域名保存即可 Windows下编辑ss安装目录下的pac.txt文件。 更改后视">
+<meta name="description" content="使用PAC自动模式的话，ss自带的PAC里并没有coursera，需要编辑PAC用户自定义规则。追加两条规则（第一条是对Coursera的代理，第二条是对视频等资源的cdn的代理）。">
 <meta name="keywords" content="Coursera">
 <meta property="og:type" content="article">
 <meta property="og:title" content="加快Coursera的访问速度">
 <meta property="og:url" content="http://yoursite.com/2018/04/04/加快Coursera的访问速度/index.html">
 <meta property="og:site_name" content="HsienFeng">
-<meta property="og:description" content="使用PAC自动模式的话，ss自带的PAC里并没有coursera，需要编辑PAC用户自定义规则。追加两条规则（第一条是对Coursera的代理，第二条是对视频等资源的cdn的代理）。 打开shadowsocks安装目录下的pac.txt文件， 在rules中添加coursera.org和cloudfront.net两个域名保存即可 Windows下编辑ss安装目录下的pac.txt文件。 更改后视">
+<meta property="og:description" content="使用PAC自动模式的话，ss自带的PAC里并没有coursera，需要编辑PAC用户自定义规则。追加两条规则（第一条是对Coursera的代理，第二条是对视频等资源的cdn的代理）。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="f:/Blog/source/images/pac.png">
-<meta property="og:image" content="f:/Blog/source/images/after.png">
-<meta property="og:updated_time" content="2018-04-23T13:05:15.468Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005MueYegy1fqmwh3xq4aj30j507zq34.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005MueYegy1fqmwhpxdw1j305002xa9y.jpg">
+<meta property="og:updated_time" content="2018-04-28T06:57:19.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="加快Coursera的访问速度">
-<meta name="twitter:description" content="使用PAC自动模式的话，ss自带的PAC里并没有coursera，需要编辑PAC用户自定义规则。追加两条规则（第一条是对Coursera的代理，第二条是对视频等资源的cdn的代理）。 打开shadowsocks安装目录下的pac.txt文件， 在rules中添加coursera.org和cloudfront.net两个域名保存即可 Windows下编辑ss安装目录下的pac.txt文件。 更改后视">
-<meta name="twitter:image" content="f:/Blog/source/images/pac.png">
+<meta name="twitter:description" content="使用PAC自动模式的话，ss自带的PAC里并没有coursera，需要编辑PAC用户自定义规则。追加两条规则（第一条是对Coursera的代理，第二条是对视频等资源的cdn的代理）。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/005MueYegy1fqmwh3xq4aj30j507zq34.jpg">
 
 
 
@@ -204,6 +206,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -308,8 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记-瞎折腾/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记&瞎折腾</span>
+                  <a href="/categories/瞎折腾/" itemprop="url" rel="index">
+                    <span itemprop="name">瞎折腾</span>
                   </a>
                 </span>
 
@@ -345,11 +357,10 @@
       
 
       
-        <p><strong>使用PAC自动模式</strong>的话，ss自带的PAC里并没有coursera，需要编辑PAC用户自定义规则。<br>追加两条规则（第一条是对Coursera的代理，第二条是对视频等资源的cdn的代理）。</p>
-<p>打开shadowsocks安装目录下的pac.txt文件， 在rules中添加coursera.org和cloudfront.net两个域名保存即可</p>
-<p>Windows下编辑ss安装目录下的pac.txt文件。<br><img src="F:\Blog\source\images\pac.png" alt=""></p>
+        <p><strong>使用PAC自动模式</strong>的话，ss自带的PAC里并没有coursera，需要编辑PAC用户自定义规则。<br>追加两条规则（第一条是对Coursera的代理，第二条是对视频等资源的cdn的代理）。<br><a id="more"></a><br>打开shadowsocks安装目录下的pac.txt文件， 在rules中添加coursera.org和cloudfront.net两个域名保存即可</p>
+<p>Windows下编辑ss安装目录下的pac.txt文件。<br><img src="http://ww1.sinaimg.cn/mw690/005MueYegy1fqmwh3xq4aj30j507zq34.jpg" alt=""></p>
 <p>更改后视频速度大幅提高：</p>
-<p><img src="F:\Blog\source\images\after.png" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/mw690/005MueYegy1fqmwhpxdw1j305002xa9y.jpg" alt=""></p>
 
       
     </div>
@@ -380,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/24/Next主题配置/" rel="next" title="Next主题配置">
-                <i class="fa fa-chevron-left"></i> Next主题配置
+              <a href="/2018/03/30/Markdown简易语法/" rel="next" title="Markdown简易语法">
+                <i class="fa fa-chevron-left"></i> Markdown简易语法
               </a>
             
           </div>
@@ -389,6 +400,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/15/基础的命令行/" rel="prev" title="基础的命令行">
+                基础的命令行 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -460,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -470,10 +485,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -481,10 +496,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">4</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -498,6 +513,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/getting-started.html" title="NexT主题" target="_blank">NexT主题</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -519,7 +548,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -528,6 +557,7 @@
   
 </div>
 
+<!--
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
@@ -535,6 +565,7 @@
 
   <span class="post-meta-divider">|</span>
 
+-->
 
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
@@ -584,6 +615,8 @@
   
 
 
+  
+
 
 
 
@@ -622,6 +655,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
