@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="HsienFeng">
 <meta property="og:description" content="CSS基础1. CSS 加载方式有几种？加载CSS有4种方式。其中有2种方式是在HTML文件中直接添加CSS代码，另外2种是引入外部CSS文件。 1. 内联式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-14T14:16:53.442Z">
+<meta property="og:updated_time" content="2018-05-14T14:29:54.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS基础">
 <meta name="twitter:description" content="CSS基础1. CSS 加载方式有几种？加载CSS有4种方式。其中有2种方式是在HTML文件中直接添加CSS代码，另外2种是引入外部CSS文件。 1. 内联式">
@@ -359,12 +359,12 @@
 <p>内联式指的是直接在 HTML 标签中的 style 属性中添加 CSS。</p>
 <p>示例：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background: red"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这通常是个很糟糕的书写方式，它只能改变当前标签的样式，如果想要多个 <div> 拥有相同的样式，你不得不重复地为每个 <div>添加相同的样式，如果想要修改一种样式，又不得不修改所有的 style 中的代码。很显然，内联方式引入 CSS 代码会导致 HTML 代码变得冗长，且使得网页难以维护。</div></div></p>
-<h5 id="2-嵌入式"><a href="#2-嵌入式" class="headerlink" title="2. 嵌入式"></a>2. 嵌入式</h5><p>嵌入式指的是在 HTML 头部中的 <style> 标签下书写 CSS 代码。</p>
+<p>这通常是个很糟糕的书写方式，它只能改变当前标签的样式，如果想要多个<code>&lt;div&gt;</code>拥有相同的样式，你不得不重复地为每个<code>&lt;div&gt;</code>添加相同的样式，如果想要修改一种样式，又不得不修改所有的 style 中的代码。很显然，内联方式引入 CSS 代码会导致 HTML 代码变得冗长，且使得网页难以维护。</p>
+<h5 id="2-嵌入式"><a href="#2-嵌入式" class="headerlink" title="2. 嵌入式"></a>2. 嵌入式</h5><p>嵌入式指的是在 HTML 头部中的<code>&lt;style&gt;</code>标签下书写 CSS 代码。</p>
 <p>示例：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    h1 &#123;</span></span><br><span class="line"><span class="undefined">        color: red;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>嵌入方式的 CSS 只对当前的网页有效。因为 CSS 代码是在 HTML 文件中，所以会使得代码比较集中，当我们写模板网页时这通常比较有利。因为查看模板代码的人可以一目了然地查看 HTML 结构和 CSS 样式。因为嵌入的 CSS 只对当前页面有效，所以当多个页面需要引入相同的 CSS 代码时，这样写会导致代码冗余，也不利于维护。</p>
-<h5 id="3-链接式"><a href="#3-链接式" class="headerlink" title="3. 链接式"></a>3. 链接式</h5><p>链接式指的是使用 HTML 头部的 <head> 标签引入外部的 CSS 文件。</p>
+<h5 id="3-链接式"><a href="#3-链接式" class="headerlink" title="3. 链接式"></a>3. 链接式</h5><p>链接式指的是使用 HTML 头部的<code>&lt;head&gt;</code>标签引入外部的 CSS 文件。</p>
 <p>示例：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"style.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这是最常见的也是最推荐的引入 CSS 的方式。使用这种方式，所有的 CSS 代码只存在于单独的 CSS 文件中，所以具有良好的可维护性。并且所有的 CSS 代码只存在于 CSS 文件中，CSS 文件会在第一次加载时引入，以后切换页面时只需加载 HTML 文件即可。</p>
@@ -373,12 +373,12 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    @import url(style.css);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>@import 是 CSS2.1 才出现的概念，所以如果浏览器版本较低，无法正确导入外部样式文件； </p>
 <p>当 HTML 文件被加载时，link 引用的文件会同时被加载，而 @import 引用的文件则会等页面全部下载完毕再被加载。</p>
-<h4 id="2-import有什么作用？如何使用？"><a href="#2-import有什么作用？如何使用？" class="headerlink" title="2. @import有什么作用？如何使用？"></a>2. @import有什么作用？如何使用？</h4><p><strong>@import</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">@规则</a>，用于从其他样式表导入样式规则。这些规则必须先于所有其他类型的规则，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@charset"><code>@charset</code></a> 规则除外; 因为它不是一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Syntax#nested_statements">嵌套语句</a>，@import不能在<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/At-rule#Conditional_Group_Rules">条件组的规则</a>中使用。</p>
-<p>因此，用户代理可以避免为不支持的媒体类型检索资源，作者可以指定依赖媒体的@import规则。这些条件导入在URI之后指定逗号分隔的<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">媒体查询</a>。在没有任何媒体查询的情况下，导入是无条件的。指定所有的媒体具有相同的效果。</p>
+<h4 id="2-import有什么作用？如何使用？"><a href="#2-import有什么作用？如何使用？" class="headerlink" title="2. @import有什么作用？如何使用？"></a>2. @import有什么作用？如何使用？</h4><p><strong>@import</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">CSS</a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule" target="_blank" rel="noopener">@规则</a>，用于从其他样式表导入样式规则。这些规则必须先于所有其他类型的规则，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@charset" target="_blank" rel="noopener"><code>@charset</code></a> 规则除外; 因为它不是一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Syntax#nested_statements" target="_blank" rel="noopener">嵌套语句</a>，@import不能在<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/At-rule#Conditional_Group_Rules" target="_blank" rel="noopener">条件组的规则</a>中使用。</p>
+<p>因此，用户代理可以避免为不支持的媒体类型检索资源，作者可以指定依赖媒体的@import规则。这些条件导入在URI之后指定逗号分隔的<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank" rel="noopener">媒体查询</a>。在没有任何媒体查询的情况下，导入是无条件的。指定所有的媒体具有相同的效果。</p>
 <p><strong>语法</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> url;</span><br><span class="line">@<span class="keyword">import</span> url list-of-media-queries;</span><br></pre></td></tr></table></figure>
 <p><em>url</em></p>
-<p>是一个表示要引入资源位置的<string>或者<url> 。 这个 URL 可以是绝对路径或者相对路径。 要注意的是这个 URL 不需要指明一个文件。</p>
+<p>是一个表示要引入资源位置的<code>&lt;string&gt;</code>或者<code>&lt;url&gt;</code>。 这个 URL 可以是绝对路径或者相对路径。 要注意的是这个 URL 不需要指明一个文件。</p>
 <p><em>list-of-media-queries</em></p>
 <p>是一个逗号分隔的 媒体查询 条件列表，决定通过URL引入的 CSS 规则 在什么条件下应用。如果浏览器不支持列表中的任何一条媒体查询条件，就不会引入URL指明的CSS文件。</p>
 <h4 id="3-id-选择器和-class-选择器的使用场景分别是什么？"><a href="#3-id-选择器和-class-选择器的使用场景分别是什么？" class="headerlink" title="3. id 选择器和 class 选择器的使用场景分别是什么？"></a>3. id 选择器和 class 选择器的使用场景分别是什么？</h4><p>id选择器：每个id在文档中必须是唯一的且一个标签只能绑定一个id。所以id选择器通常用于大的模块上，多用于父级。</p>
@@ -399,7 +399,7 @@
 </ol>
 <h5 id="优先级的算法"><a href="#优先级的算法" class="headerlink" title="优先级的算法"></a>优先级的算法</h5><p>每个规则对应一个初始”四位数”：0、0、0、0<br>若是 行内选择符，则加 1、0、0、0<br>若是 ID选择符，则加 0、1、0、0<br>若是 类选择符/属性选择符/伪类选择符，则分别加 0、0、1、0<br>若是 元素选择符/伪元素选择符，则分别加 0、0、0、1<br>将每条规则中，选择符对应的数相加后得到的“四位数”，从左到右进行比较，大的优先级更高。 优先级相同时，采用就近原则，即最后出现的样式。</p>
 <h4 id="6-为什么要初始化CSS样式？"><a href="#6-为什么要初始化CSS样式？" class="headerlink" title="6. 为什么要初始化CSS样式？"></a>6. 为什么要初始化CSS样式？</h4><p>因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。</p>
-</style></p>
+
       
     </div>
     
@@ -587,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS基础"><span class="nav-number">1.</span> <span class="nav-text">CSS基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-CSS-加载方式有几种？"><span class="nav-number">1.1.</span> <span class="nav-text">1. CSS 加载方式有几种？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-内联式"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 内联式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-嵌入式"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 嵌入式</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS基础"><span class="nav-number">1.</span> <span class="nav-text">CSS基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-CSS-加载方式有几种？"><span class="nav-number">1.1.</span> <span class="nav-text">1. CSS 加载方式有几种？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-内联式"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 内联式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-嵌入式"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 嵌入式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-链接式"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 链接式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-导入式"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 导入式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-import有什么作用？如何使用？"><span class="nav-number">1.2.</span> <span class="nav-text">2. @import有什么作用？如何使用？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-id-选择器和-class-选择器的使用场景分别是什么？"><span class="nav-number">1.3.</span> <span class="nav-text">3. id 选择器和 class 选择器的使用场景分别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-CSS选择器有哪些？哪些属性可以继承？"><span class="nav-number">1.4.</span> <span class="nav-text">4. CSS选择器有哪些？哪些属性可以继承？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-选择器的优先级"><span class="nav-number">1.5.</span> <span class="nav-text">5. 选择器的优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优先级的算法"><span class="nav-number">1.5.1.</span> <span class="nav-text">优先级的算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-为什么要初始化CSS样式？"><span class="nav-number">1.6.</span> <span class="nav-text">6. 为什么要初始化CSS样式？</span></a></li></ol></li></ol></div>
             
 
           </div>
