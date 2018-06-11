@@ -370,7 +370,7 @@
 <p>这是最常见的也是最推荐的引入 CSS 的方式。使用这种方式，所有的 CSS 代码只存在于单独的 CSS 文件中，所以具有良好的可维护性。并且所有的 CSS 代码只存在于 CSS 文件中，CSS 文件会在第一次加载时引入，以后切换页面时只需加载 HTML 文件即可。</p>
 <h5 id="4-导入式"><a href="#4-导入式" class="headerlink" title="4. 导入式"></a>4. 导入式</h5><p>导入式指的是使用 CSS 规则引入外部 CSS 文件。</p>
 <p>示例：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    @import url(style.css);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    @<span class="keyword">import</span> url(style.css);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>@import 是 CSS2.1 才出现的概念，所以如果浏览器版本较低，无法正确导入外部样式文件； </p>
 <p>当 HTML 文件被加载时，link 引用的文件会同时被加载，而 @import 引用的文件则会等页面全部下载完毕再被加载。</p>
 <h4 id="2-import有什么作用？如何使用？"><a href="#2-import有什么作用？如何使用？" class="headerlink" title="2. @import有什么作用？如何使用？"></a>2. @import有什么作用？如何使用？</h4><p><strong>@import</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">CSS</a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule" target="_blank" rel="noopener">@规则</a>，用于从其他样式表导入样式规则。这些规则必须先于所有其他类型的规则，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@charset" target="_blank" rel="noopener"><code>@charset</code></a> 规则除外; 因为它不是一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Syntax#nested_statements" target="_blank" rel="noopener">嵌套语句</a>，@import不能在<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/At-rule#Conditional_Group_Rules" target="_blank" rel="noopener">条件组的规则</a>中使用。</p>
@@ -522,7 +522,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
