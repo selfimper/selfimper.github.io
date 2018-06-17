@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -81,25 +81,20 @@
 
 
 
-<meta name="description" content="CSS基础(四)-BFC&amp;amp;边距合并1. BFC 是什么？如何生成 BFC？BFC 有什么作用？1.1 BFC的概念全称Block Formatting Context，块级格式化上下文， 是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。">
-<meta name="keywords" content="CSS">
+<meta name="description" content="重拾JavaScript1. JavaScript的发展历史1995年5月，Brendan Eich只用了10天，就设计完成了这种语言的第一版。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS基础(四)-BFC&amp;边距合并">
-<meta property="og:url" content="http://yoursite.com/2018/05/21/CSS基础(四)-BFC-边距合并/index.html">
+<meta property="og:title" content="重拾JavaScript">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/重拾JavaScript/index.html">
 <meta property="og:site_name" content="HsienFeng">
-<meta property="og:description" content="CSS基础(四)-BFC&amp;amp;边距合并1. BFC 是什么？如何生成 BFC？BFC 有什么作用？1.1 BFC的概念全称Block Formatting Context，块级格式化上下文， 是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。">
+<meta property="og:description" content="重拾JavaScript1. JavaScript的发展历史1995年5月，Brendan Eich只用了10天，就设计完成了这种语言的第一版。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005MueYegy1fsbyeowusvj30tw0a9wew.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005MueYegy1fsbyj3sgdjj30ty0btq3j.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005MueYegy1fsbyqe1563j30tz08i0t9.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005MueYegy1fsbys5pi5kj30tx09ogmc.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005MueYegy1fsbzr612awj30tt099q47.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005MueYegy1fsbzt8t2w6j30tz09n3zs.jpg">
-<meta property="og:updated_time" content="2018-06-15T10:10:42.191Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005MueYegy1fseibf8ca3j30hc081754.jpg">
+<meta property="og:updated_time" content="2018-06-17T13:59:00.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS基础(四)-BFC&amp;边距合并">
-<meta name="twitter:description" content="CSS基础(四)-BFC&amp;amp;边距合并1. BFC 是什么？如何生成 BFC？BFC 有什么作用？1.1 BFC的概念全称Block Formatting Context，块级格式化上下文， 是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005MueYegy1fsbyeowusvj30tw0a9wew.jpg">
+<meta name="twitter:title" content="重拾JavaScript">
+<meta name="twitter:description" content="重拾JavaScript1. JavaScript的发展历史1995年5月，Brendan Eich只用了10天，就设计完成了这种语言的第一版。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005MueYegy1fseibf8ca3j30hc081754.jpg">
 
 
 
@@ -129,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/21/CSS基础(四)-BFC-边距合并/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/30/重拾JavaScript/"/>
 
 
 
 
 
-  <title>CSS基础(四)-BFC&边距合并 | HsienFeng</title>
+  <title>重拾JavaScript | HsienFeng</title>
   
 
 
@@ -272,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/CSS基础(四)-BFC-边距合并/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/重拾JavaScript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HsienFeng">
@@ -289,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS基础(四)-BFC&边距合并</h1>
+          <h1 class="post-title" itemprop="name headline">重拾JavaScript</h1>
         
 
         <div class="post-meta">
@@ -301,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T18:08:38+08:00">
-                2018-05-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T21:52:51+08:00">
+                2018-05-30
               </time>
             
 
@@ -361,74 +356,56 @@
       
 
       
-        <h4 id="CSS基础-四-BFC-amp-边距合并"><a href="#CSS基础-四-BFC-amp-边距合并" class="headerlink" title="CSS基础(四)-BFC&amp;边距合并"></a>CSS基础(四)-BFC&amp;边距合并</h4><h5 id="1-BFC-是什么？如何生成-BFC？BFC-有什么作用？"><a href="#1-BFC-是什么？如何生成-BFC？BFC-有什么作用？" class="headerlink" title="1. BFC 是什么？如何生成 BFC？BFC 有什么作用？"></a>1. BFC 是什么？如何生成 BFC？BFC 有什么作用？</h5><h6 id="1-1-BFC的概念"><a href="#1-1-BFC的概念" class="headerlink" title="1.1 BFC的概念"></a>1.1 BFC的概念</h6><p>全称Block Formatting Context，块级格式化上下文， 是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。<br><a id="more"></a><br><strong>具有 BFC 特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且 BFC 具有普通容器所没有的一些特性。</strong> </p>
-<h6 id="1-2-生成BFC"><a href="#1-2-生成BFC" class="headerlink" title="1.2 生成BFC"></a>1.2 生成BFC</h6><p>（1）<strong>根元素</strong></p>
-<p>html里的根元素产生相应的“块级格式化上下文”这类的规则，如某些规则：块级容器可以充满父容器，父容器可以被子元素撑开，外边距产生合并，渲染顺序是从上到下</p>
-<p>（2）<strong>float属性不为none；</strong></p>
-<p>如float:left; 该元素属性本身也产生了相应的块级格式化上下文。该元素产生的BFC与所在的根元素的BFC互不影响，此元素的作用域，则为该元素服务，与根元素产生一个隐形的边界</p>
-<p>（3）<strong>position为absolute或fixed；</strong></p>
-<p>（4）<strong>display为inline-block, flex, </strong> <strong>table-cell, </strong> <strong>或inline-flex；</strong></p>
-<p>（5）<strong>overflow不为visible；</strong></p>
-<h6 id="1-3-BFC的作用"><a href="#1-3-BFC的作用" class="headerlink" title="1.3 BFC的作用"></a>1.3 BFC的作用</h6><ol>
-<li>BFC 会阻止外边距折叠 </li>
-</ol>
-<p>两个相连的 div 在垂直上的外边距会发生叠加,可以通过设置BFC来阻止外边距折叠例如设置为overflow:hidden。 </p>
-<p>先看如图代码：</p>
-<p><img src="http://ww1.sinaimg.cn/large/005MueYegy1fsbyeowusvj30tw0a9wew.jpg" alt=""></p>
-<p>因为两个 div 元素都处于同一个 BFC 容器下 (这里指 body 元素) 所以第一个 div 的下边距和第二个 div 的上边距发生了重叠，所以两个盒子之间距离只有 50px，而不是 100px。 </p>
-<p><strong>如果想要避免外边距的重叠，可以将其放在不同的 BFC 容器中。</strong> 如下代码：</p>
-<p><img src="http://ww1.sinaimg.cn/large/005MueYegy1fsbyj3sgdjj30ty0btq3j.jpg" alt=""></p>
-<p>这时候，两个盒子边距就变成了 200px。</p>
+        <h3 id="重拾JavaScript"><a href="#重拾JavaScript" class="headerlink" title="重拾JavaScript"></a>重拾JavaScript</h3><h4 id="1-JavaScript的发展历史"><a href="#1-JavaScript的发展历史" class="headerlink" title="1. JavaScript的发展历史"></a>1. JavaScript的发展历史</h4><p>1995年5月，Brendan Eich只用了10天，就设计完成了这种语言的第一版。<br><a id="more"></a><br>1996年8月，微软模仿JavaScript开发了一种相近的语言，取名为JScript（JavaScript是Netscape的注册商标，微软不能用），首先内置于IE 3.0。</p>
+<p>1996年11月，Netscape公司决定将JavaScript提交给国际标准化组织ECMA（European Computer Manufacturers Association），希望JavaScript能够成为国际标准，以此抵抗微软。</p>
+<p>1997年7月，ECMA组织发布262号标准文件（ECMA-262）的第一版，规定了浏览器脚本语言的标准，并将这种语言称为ECMAScript。这个版本就是ECMAScript 1.0版。</p>
+<p>基本上，JavaScript这个名字的原意是“很像Java的脚本语言”。在JavaScript语言中，函数是一种独立的数据类型，以及采用基于原型对象（prototype）的继承链。这是它与Java语法最大的两点区别。JavaScript语法要比Java自由得多。</p>
+<p>1999年12月，ECMAScript 3.0版发布，成为JavaScript的通行标准，得到了广泛支持。</p>
+<p>2008年7月，由于对于下一个版本应该包括哪些功能，各方分歧太大，争论过于激进，ECMA开会决定，中止ECMAScript 4.0的开发（即废除了这个版本），将其中涉及现有功能改善的一小部分，发布为ECMAScript 3.1，会后不久，ECMAScript 3.1就改名为ECMAScript 5。</p>
+<p>2009年12月，ECMAScript 5.0版正式发布。</p>
+<p>2015年6月，ECMAScript 6正式发布，并且更名为“ECMAScript 2015”。这是因为TC39委员会计划，以后每年发布一个ECMAScirpt的版本，下一个版本在2016年发布，称为“ECMAScript 2016”。 </p>
+<p>2016年6月: ECMAScript第七个版本。（ES7）</p>
+<p>2017年6月: ECMAScript第八个版本。（ES8）</p>
 <hr>
-<ol>
-<li>BFC 可以包含浮动的元素 </li>
-</ol>
-<p>使用overflow: hidden或overflow: auto触发浮动元素的父元素的 BFC 特性，从而可以包含浮动元素，实现清除浮动。 </p>
-<p>例如：</p>
-<p><img src="http://ww1.sinaimg.cn/large/005MueYegy1fsbyqe1563j30tz08i0t9.jpg" alt=""></p>
-<p>由于容器内元素浮动，脱离了文档流，所以容器只剩下 2px 的边距高度。</p>
-<p>若触发浮动元素的父元素的 BFC 特性，则容器将会包裹浮动元素：</p>
-<p><img src="http://ww1.sinaimg.cn/large/005MueYegy1fsbys5pi5kj30tx09ogmc.jpg" alt=""></p>
+<h4 id="2-浏览器加载网站的过程"><a href="#2-浏览器加载网站的过程" class="headerlink" title="2. 浏览器加载网站的过程"></a>2. 浏览器加载网站的过程</h4><p>1.首先浏览器从服务器接收到html代码，然后开始解析html</p>
+<p>2.构建DOM树（根据html代码自顶向下进行构建），并且在同时构建渲染树</p>
+<p>3.遇到js文件加载执行，将阻塞DOM树的构建；遇到css文件，将阻塞渲染树的构建</p>
+<p>（script标签中的defer属性：构建DOM树的过程和js文件的加载异步（并行）进行，但是js文件执行需要在DOM树构建完成之后；</p>
+<p>   script标签中的async属性：构建DOM树、渲染树的过程和js文件的加载和执行异步（并行）进行）</p>
 <hr>
-<ol>
-<li>BFC 可以阻止元素被浮动元素覆盖 </li>
-</ol>
-<p>浮动元素会脱离文档流，浮动元素的块级兄弟元素会无视浮动元素的位置，尽量占满一整行，这样就会被浮动元素覆盖，可以为该兄弟元素设置 BFC 后可以阻止这种情况的发生。 </p>
-<p><img src="http://ww1.sinaimg.cn/large/005MueYegy1fsbzr612awj30tt099q47.jpg" alt=""></p>
-<p>第二个元素有部分被浮动元素所覆盖，(但是文本信息不会被浮动元素所覆盖) 。</p>
-<p>如果想避免元素被覆盖，可触第二个元素的 BFC 特性，在第二个元素中加入 <strong>overflow: hidden</strong>，就会变成： </p>
-<p><img src="http://ww1.sinaimg.cn/large/005MueYegy1fsbzt8t2w6j30tz09n3zs.jpg" alt=""></p>
-<p>ps: 该方法可以用以实现两列自适应布局。</p>
-<h5 id="2-在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？"><a href="#2-在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？" class="headerlink" title="2. 在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？"></a>2. 在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？</h5><h6 id="2-1场景"><a href="#2-1场景" class="headerlink" title="2.1场景"></a>2.1场景</h6><ol>
-<li>相邻元素之间</li>
-</ol>
+<h4 id="3-CSS、JS的放置顺序"><a href="#3-CSS、JS的放置顺序" class="headerlink" title="3. CSS、JS的放置顺序"></a>3. CSS、JS的放置顺序</h4><p>根据浏览器加载网站的过程，</p>
 <ul>
-<li>毗邻的两个元素之间的外边距会折叠（除非后一个元素需要清除之前的浮动）。</li>
-</ul>
-<ol>
-<li>父元素与其第一个或最后一个子元素之间</li>
-</ol>
-<ul>
-<li>如果在父元素与其第一个子元素之间不存在边框、内边距、行内内容，也没有创建块格式化上下文、或者清除浮动将两者的 margin-top 分开；或者在父元素与其最后一个子元素之间不存在边框、内边距、行内内容、height、min-height、max-height将两者的 margin-bottom 分开，那么这两对外边距之间会产生折叠。此时子元素的外边距会“溢出”到父元素的外面。</li>
-</ul>
-<ol>
-<li>空的块级元素</li>
-</ol>
-<ul>
-<li>如果一个块级元素中不包含任何内容，并且在其 margin-top 与 margin-bottom 之间没有边框、内边距、行内内容、height、min-height 将两者分开，则该元素的上下外边距会折叠。</li>
+<li><code>&lt;script&gt;</code>标签最好放在<code>&lt;/body&gt;</code>标签的前面，因为放在所有body中的标签后面就不会出现网页加载时出现空白的情况，可以持续的给用户提供视觉反馈，同时在有些情况下，会降低错误的发生。</li>
+<li>而CSS标签应该放在<code>&lt;head&gt; &lt;/head&gt;</code>标签之间，因为如果放在<code>&lt;/body&gt;</code>标签的前面，那么当DOM树构建完成了，渲染树才构建，那么当渲染树构建完成，浏览器不得不再重新渲染整个页面，这样造成了资源的浪费。效率也不高。如果放在<code>&lt;head&gt; &lt;/head&gt;</code>之间，浏览器边构建边渲染，效率要高的多。</li>
 </ul>
 <hr>
-<h6 id="2-2-如何合并"><a href="#2-2-如何合并" class="headerlink" title="2.2 如何合并"></a>2.2 如何合并</h6><p>两个相邻的外边距都是正数时，合并取它们两者之间较大的值。</p>
-<p>两个相邻的外边距都是负数时，合并取两者绝对值的较大值。 </p>
-<p>两个外边距一正一负时，合并取两者相加的和。 </p>
+<h4 id="4-异步加载脚本"><a href="#4-异步加载脚本" class="headerlink" title="4. 异步加载脚本"></a>4. 异步加载脚本</h4><ul>
+<li>script标签的async=”async”属性</li>
+</ul>
+<p><code>&lt;script type=&quot;text/javascript&quot; src=&quot;xxx.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;</code></p>
+<p>async属性是HTML5新增属性，需要Chrome、Firefox、IE9+浏览器支持；</p>
+<p>规定一旦脚本可用，则会异步执行；<br>仅适用于外部脚本；<br>此方法不能保证脚本按顺序执行。</p>
+<ul>
+<li>script标签的defer=”defer”属性</li>
+</ul>
+<p><code>&lt;script type=&quot;text/javascript&quot; src=&quot;xxx.js&quot; defer=&quot;defer&quot;&gt;&lt;/script&gt;</code><br>defer属性规定是否对脚本执行进行延迟，直到页面加载为止；<br>如果脚本不会改变文档的内容，可将defer属性加入到script标签中，以便加快处理文档的速度；<br>兼容所有浏览器；<br>此方法可以确保所有设置了defer属性的脚本按顺序执行。</p>
 <hr>
-<h6 id="2-3-如何不让相邻元素外边距合并："><a href="#2-3-如何不让相邻元素外边距合并：" class="headerlink" title="2.3 如何不让相邻元素外边距合并："></a>2.3 如何不让相邻元素外边距合并：</h6><p>设置border或padding使外边框隔离。 </p>
-<p>设置父元素overflow属性取值为除visiable外的其他值，构建BFC区域进行隔离，该元素和它的子元素之间的margin不会被折叠。 </p>
-<p>设置浮动元素(float:left/right)，不与任何元素的外边距合并。 </p>
-<p>设置绝对定位元素（position:absolute），不与任何元素的外边距合并。 </p>
-<p>设置display:inline-block的元素，不与任何元素的外边距合并。 </p>
+<p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。也就是说，使用了defer 或 async之后能够改变这种加载、执行的时机。</p>
+<p>常应用在引用了广告和统计的页面中，不会影响、堵塞，更不会影响到到页面其他元素</p>
 <hr>
-<p><strong>风景列表在线demo：<a href="https://selfimper.github.io/TASK/10/10.2/index.html" target="_blank" rel="noopener">图片列表</a></strong></p>
+<h4 id="5-repaint-和-reflow-分别指什么"><a href="#5-repaint-和-reflow-分别指什么" class="headerlink" title="5. repaint 和 reflow 分别指什么"></a>5. repaint 和 reflow 分别指什么</h4><p><img src="http://ww1.sinaimg.cn/large/005MueYegy1fseibf8ca3j30hc081754.jpg" alt=""></p>
+<p>浏览器渲染机制：</p>
+<ul>
+<li>解析 HTML 标签, 构建 DOM 树 </li>
+<li>解析 CSS 标签, 构建 CSSOM 树 </li>
+<li>把 DOM 和 CSSOM 组合成 渲染树 (render tree) </li>
+<li>在渲染树的基础上进行布局, 计算每个节点的几何结构 </li>
+<li>把每个节点绘制到屏幕上 (painting) </li>
+</ul>
+<hr>
+<p> repaint: 重新绘制。当各种盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来后，浏览器于是便把这些元素都按照各自的特性绘制了一遍，于是页面的内容出现了，这个过程称之为repaint。 </p>
+<p>reflow: 重新回流。对于DOM结构中的各个元素都有自己的盒子（模型），这些都需要浏览器根据各种样式（浏览器的、开发人员定义的等）来计算并根据计算结果将元素放到它该出现的位置，这个过程称之为reflow。 </p>
+<p> 参考链接：<a href="https://segmentfault.com/a/1190000002629708" target="_blank" rel="noopener">Repaint 、Reflow 的基本认识和优化</a></p>
 
       
     </div>
@@ -446,7 +423,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -459,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/18/CSS基础(三)/" rel="next" title="CSS基础(三)">
-                <i class="fa fa-chevron-left"></i> CSS基础(三)
+              <a href="/2018/05/27/CSS基础(五)-浏览器兼容/" rel="next" title="CSS基础(五)-浏览器兼容">
+                <i class="fa fa-chevron-left"></i> CSS基础(五)-浏览器兼容
               </a>
             
           </div>
@@ -468,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/27/CSS基础(五)-浏览器兼容/" rel="prev" title="CSS基础(五)-浏览器兼容">
-                CSS基础(五)-浏览器兼容 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS基础-四-BFC-amp-边距合并"><span class="nav-number">1.</span> <span class="nav-text">CSS基础(四)-BFC&amp;边距合并</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-BFC-是什么？如何生成-BFC？BFC-有什么作用？"><span class="nav-number">1.1.</span> <span class="nav-text">1. BFC 是什么？如何生成 BFC？BFC 有什么作用？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-1-BFC的概念"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 BFC的概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-2-生成BFC"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 生成BFC</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-BFC的作用"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 BFC的作用</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？"><span class="nav-number">1.2.</span> <span class="nav-text">2. 在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1场景"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1场景</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2-如何合并"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 如何合并</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-3-如何不让相邻元素外边距合并："><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 如何不让相邻元素外边距合并：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#重拾JavaScript"><span class="nav-number">1.</span> <span class="nav-text">重拾JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-JavaScript的发展历史"><span class="nav-number">1.1.</span> <span class="nav-text">1. JavaScript的发展历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-浏览器加载网站的过程"><span class="nav-number">1.2.</span> <span class="nav-text">2. 浏览器加载网站的过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-CSS、JS的放置顺序"><span class="nav-number">1.3.</span> <span class="nav-text">3. CSS、JS的放置顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-异步加载脚本"><span class="nav-number">1.4.</span> <span class="nav-text">4. 异步加载脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-repaint-和-reflow-分别指什么"><span class="nav-number">1.5.</span> <span class="nav-text">5. repaint 和 reflow 分别指什么</span></a></li></ol></li></ol></div>
             
 
           </div>
