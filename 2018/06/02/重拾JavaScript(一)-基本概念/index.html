@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+
+
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+  
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="重拾JavaScript(一)-基本概念语法语句JavaScript程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重拾JavaScript(一)-基本概念">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/重拾JavaScript(一)-基本概念/index.html">
+<meta property="og:site_name" content="HsienFeng">
+<meta property="og:description" content="重拾JavaScript(一)-基本概念语法语句JavaScript程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-19T08:28:43.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重拾JavaScript(一)-基本概念">
+<meta name="twitter:description" content="重拾JavaScript(一)-基本概念语法语句JavaScript程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/02/重拾JavaScript(一)-基本概念/"/>
+
+
+
+
+
+  <title>重拾JavaScript(一)-基本概念 | HsienFeng</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HsienFeng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">经历的那些岁月，总该留下点痕迹。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/重拾JavaScript(一)-基本概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HsienFeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HsienFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">重拾JavaScript(一)-基本概念</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-02T16:18:22+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="重拾JavaScript-一-基本概念"><a href="#重拾JavaScript-一-基本概念" class="headerlink" title="重拾JavaScript(一)-基本概念"></a>重拾JavaScript(一)-基本概念</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><h5 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h5><p>JavaScript程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。<br><a id="more"></a><br>语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var a = 1 + 3;</span><br></pre></td></tr></table></figure>
+<p>这条语句先用<code>var</code>命令，声明了变量<code>a</code>，然后将<code>1 + 3</code>的运算结果赋值给变量<code>a</code>。</p>
+<p><code>1 + 3</code>叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。</p>
+<p>凡是JavaScript语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。一条语句可以包含多个表达式。</p>
+<p>语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var a = 1 + 3 ; var b = &apos;abc&apos;;</span><br></pre></td></tr></table></figure>
+<p>分号前面可以没有任何内容，JavaScript引擎将其视为空语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;;;</span><br></pre></td></tr></table></figure>
+<p>上面的代码就表示3个空语句。</p>
+<p>表达式不需要分号结尾。一旦在表达式后面添加分号，则JavaScript引擎就将表达式视为语句，这样会产生一些没有任何意义的语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 + 3;</span><br><span class="line">&apos;abc&apos;;</span><br></pre></td></tr></table></figure>
+<p>上面两行语句有返回值，但是没有任何意义，因为只是返回一个单纯的值，没有任何其他操作。</p>
+<hr>
+<h6 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h6><p>if语句是编程语言最常用的语句，语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(condition)&#123;</span><br><span class="line">    //true statement</span><br><span class="line">&#125;else &#123;</span><br><span class="line">    //false statement</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中<code>condition</code>可以是任意表达式，结果不一定是布尔值，JavaScript解释器会自动调用<code>Boolean()</code>将表达式结果转为布尔值，如果表达式为真执行第一个代码块内语句，如果为假执行第二个代码块内语句</p>
+<p>只有一条语句的时候代码块不是必需的，出于维护性考虑我们建议添加</p>
+<p>if语句可以单独使用，也可以和多个else连续使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">if(a &gt; 2)&#123;</span><br><span class="line">    // statement</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if( a == 1)&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if(a == 2)&#123;</span><br><span class="line"></span><br><span class="line">&#125;else if(a == 3 )&#123;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age=<span class="number">18</span>;</span><br><span class="line"><span class="keyword">if</span>(age&gt;=<span class="number">18</span>)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"你已经成年，请输入身份号。"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"对不起，你未成年，不可登录。"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h6 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h6><p>多个<code>if...else</code>连在一起使用的时候，可以转为使用更方便的<code>switch</code>结构。 </p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(expresstion)&#123;</span><br><span class="line">    <span class="keyword">case</span> value1:     <span class="comment">//该条件：（满足）这个值</span></span><br><span class="line">        statement;   <span class="comment">//则执行该语句</span></span><br><span class="line">        <span class="keyword">break</span>;       <span class="comment">//强制输出</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> value2:</span><br><span class="line">        statement;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>-<span class="keyword">case</span> 的用法(多个条件情况)</span><br><span class="line"><span class="keyword">var</span> week=<span class="keyword">new</span> <span class="built_in">Date</span>().getDay();</span><br><span class="line"><span class="keyword">var</span> weekstr=<span class="string">""</span>;</span><br><span class="line"><span class="keyword">switch</span> (week)&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">weekstr=<span class="string">"日"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">weekstr=<span class="string">"一"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">weekstr=<span class="string">"二"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">weekstr=<span class="string">"三"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">weekstr=<span class="string">"四"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">weekstr=<span class="string">"五"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">weekstr=<span class="string">"六"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"今天是星期"</span>+weekstr);</span><br></pre></td></tr></table></figure>
+<hr>
+<h6 id="while和do-while"><a href="#while和do-while" class="headerlink" title="while和do-while"></a>while和do-while</h6><ul>
+<li>while</li>
+</ul>
+<p>while语句属于前测试循环语句，也就是在循环体内的代码被执行之前，就会对条件求值，不符合的话就不会执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while(expression)&#123;</span><br><span class="line">    statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看个例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">while</span>(i &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    i--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>do-while</li>
+</ul>
+<p>do-while是后测试循环语句，在出口条件判断之前就会执行一次代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">do&#123;</span><br><span class="line">    statement;</span><br><span class="line">&#125;while(expression);</span><br></pre></td></tr></table></figure>
+<p>看个例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    i--;</span><br><span class="line">&#125;<span class="keyword">while</span>(i &gt; <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h6 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h6><p><code>for</code>语句是循环命令的另一种形式，可以指定循环的起点、终点和终止条件。它的格式如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (初始化表达式; 条件; 递增表达式) &#123;</span><br><span class="line">  语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>for</code>语句后面的括号里面，有三个表达式。</p>
+<ul>
+<li>初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。</li>
+<li>条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。</li>
+<li>递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。</li>
+</ul>
+<p>下面是一个例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var x = 3;</span><br><span class="line">for (var i = 0; i &lt; x; i++) &#123;</span><br><span class="line">  console.log(i);</span><br><span class="line">&#125;</span><br><span class="line">// 0</span><br><span class="line">// 1</span><br><span class="line">// 2</span><br></pre></td></tr></table></figure>
+<p>上面代码中，初始化表达式是<code>var i = 0</code>，即初始化一个变量<code>i</code>；测试表达式是<code>i &lt; x</code>，即只要<code>i</code>小于<code>x</code>，就会执行循环；递增表达式是<code>i++</code>，即每次循环结束后，<code>i</code>增大1。</p>
+<hr>
+<h6 id="label语句"><a href="#label语句" class="headerlink" title="label语句"></a>label语句</h6><p>JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">label:</span><br><span class="line">  语句</span><br><span class="line">  </span><br><span class="line">示例：</span><br><span class="line">start: <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt; count; i++)&#123;</span><br><span class="line">    alert(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。</p>
+<p>标签通常与<code>break</code>语句和<code>continue</code>语句配合使用，跳出特定的循环。</p>
+<hr>
+<h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5><p>单行注释以两个斜杠开头，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// 单行注释</span><br></pre></td></tr></table></figure>
+<p>块级注释以一个斜杠和一个星号（<code>/*</code>）开头，以一个星号和一个斜杠（<code>*/</code>）结尾，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> *  这是一个多行</span><br><span class="line"> *  （块级）注释</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><p>变量是对“值”的引用，使用变量等同于引用一个值。每一个变量都有一个变量名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br></pre></td></tr></table></figure>
+<p>上面的代码先声明变量<code>a</code>，然后在变量<code>a</code>与数值1之间建立引用关系，也称为将数值1“赋值”给变量<code>a</code>。以后，引用变量<code>a</code>就会得到数值1。最前面的<code>var</code>，是变量声明命令。它表示通知解释引擎，要创建一个变量<code>a</code>。</p>
+<p>变量的声明和赋值，是分开的两个步骤，上面的代码将它们合在了一起，实际的步骤是下面这样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a;</span><br><span class="line">a = 1;</span><br></pre></td></tr></table></figure>
+<p>如果只是声明变量而没有赋值，则该变量的值是<code>undefined</code>。<code>undefined</code>是一个JavaScript关键字，表示“无定义”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a;</span><br><span class="line">a // undefined</span><br></pre></td></tr></table></figure>
+<p>如果变量赋值的时候，忘了写<code>var</code>命令，这条语句也是有效的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">// 基本等同</span><br><span class="line">a = 1;</span><br></pre></td></tr></table></figure>
+<p>但是，不写<code>var</code>的做法，不利于表达意图，而且容易不知不觉地创建全局变量，所以建议总是使用<code>var</code>命令声明变量。</p>
+<blockquote>
+<p>严格地说，<code>var a = 1</code> 与 <code>a = 1</code>，这两条语句的效果不完全一样，主要体现在<code>delete</code>命令无法删除前者。不过，绝大多数情况下，这种差异是可以忽略的。</p>
+</blockquote>
+<p>如果一个变量没有声明就直接使用，JavaScript会报错，告诉你变量未定义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x</span><br><span class="line">// ReferenceError: x is not defined</span><br></pre></td></tr></table></figure>
+<p>上面代码直接使用变量<code>x</code>，系统就报错，告诉你变量<code>x</code>没有声明。</p>
+<p>可以在同一条<code>var</code>命令中声明多个变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var a, b;</span><br></pre></td></tr></table></figure>
+<p>JavaScript 是一种动态类型语言，也就是说，变量的类型没有限制，可以赋予各种类型的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">a = &apos;hello&apos;;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，变量<code>a</code>起先被赋值为一个数值，后来又被重新赋值为一个字符串。第二次赋值的时候，因为变量<code>a</code>已经存在，所以不需要使用<code>var</code>命令。</p>
+<p>如果使用<code>var</code>重新声明一个已经存在的变量，是无效的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> x;</span><br><span class="line">x <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，变量<code>x</code>声明了两次，第二次声明是无效的。</p>
+<p>但是，如果第二次声明的同时还赋值了，则会覆盖掉前面的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> x;</span><br><span class="line">x = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5><p>所谓标识符，就是指变量、函数、属性的名字，或者函数的参数。标识符可以是按照下列格式规则组合起来的一或多个字符：</p>
+<ul>
+<li>第一个字符必须是一个字母、下划线（_）或一个美元符号（$）；</li>
+<li><p>其他字符可以是字母、下划线、美元符号或数字。</p>
+<p>按照惯例，ECMAScript标识符采用驼峰大小写格式，也就是第一个字母小写，剩下的每个有意义的单词的首字母大写，例如：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firstSecond </span><br><span class="line">myCar</span><br><span class="line">doSomethingImportant</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="关键字和保留字"><a href="#关键字和保留字" class="headerlink" title="关键字和保留字"></a>关键字和保留字</h5><p>JavaScript有一些保留字，不能用作标识符 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">break         do           instanceof        typeof</span><br><span class="line">case          else         new               var</span><br><span class="line">catch         finally      return            void</span><br><span class="line">continue      for          switch            while</span><br><span class="line">debugger*     function     this              with</span><br><span class="line">default       if           throw</span><br><span class="line">delete        in           tr</span><br><span class="line"></span><br><span class="line">第5版把在非严格模式下运行时的保留字缩减为下列这些：</span><br><span class="line">class          enum          extends         super</span><br><span class="line">const          export        import</span><br><span class="line"></span><br><span class="line">在严格模式下，第5版还对以下保留字施加了限制：</span><br><span class="line">implements     package       public</span><br><span class="line">interface      private       static</span><br><span class="line">let            protected     yield</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h5><p>JavaScript使用大括号，将多个相关的语句组合在一起，称为“区块”（block）。</p>
+<p>与大多数编程语言不一样，JavaScript的区块不构成单独的作用域（scope）。也就是说，区块中的变量与区块外的变量，属于同一个作用域。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  var a = 1;</span><br><span class="line">&#125;</span><br><span class="line">a // 1</span><br></pre></td></tr></table></figure>
+<p>上面代码在区块内部，声明并赋值了变量<code>a</code>，然后在区块外部，变量<code>a</code>依然有效，这说明区块不构成单独的作用域，与不使用区块的情况没有任何区别。所以，单独使用的区块在JavaScript中意义不大，很少出现。区块往往用来构成其他更复杂的语法结构，比如<code>for</code>、<code>if</code>、<code>while</code>、<code>function</code>等。</p>
+<hr>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有六种。（ES6 又新增了第七种 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Symbol" target="_blank" rel="noopener">Symbol</a> 类型的值）</p>
+<ul>
+<li>数值（number）：整数和小数（比如1和3.14）</li>
+<li>字符串（string）：字符组成的文本（比如”Hello World”）</li>
+<li>布尔值（Boolean）：<code>true</code>（真）和<code>false</code>（假）两个特定值</li>
+<li><code>undefined</code>：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值(<strong>一个变量没有赋值，只能是undefined，不会是null</strong> </li>
+<li>)</li>
+<li><code>null</code>：表示无值，即此处的值就是“无”的状态。</li>
+<li>对象（object）：各种值组成的集合</li>
+</ul>
+<hr>
+<h5 id="typeof运算符"><a href="#typeof运算符" class="headerlink" title="typeof运算符"></a>typeof运算符</h5><p>JavaScript有三种方法，可以确定一个值到底是什么类型。</p>
+<ul>
+<li><code>typeof</code>运算符</li>
+<li><code>instanceof</code>运算符</li>
+<li><code>Object.prototype.toString</code>方法</li>
+</ul>
+<p><code>instanceof</code>运算符和<code>Object.prototype.toString</code>方法，将在后文相关章节介绍。这里着重介绍<code>typeof</code>运算符。</p>
+<p><code>typeof</code>运算符可以返回一个值的数据类型，可能有以下结果。</p>
+<h6 id="（1）原始类型"><a href="#（1）原始类型" class="headerlink" title="（1）原始类型"></a><strong>（1）原始类型</strong></h6><p>数值、字符串、布尔值分别返回<code>number</code>、<code>string</code>、<code>boolean</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">typeof 123 // &quot;number&quot;</span><br><span class="line">typeof &apos;123&apos; // &quot;string&quot;</span><br><span class="line">typeof false // &quot;boolean&quot;</span><br></pre></td></tr></table></figure>
+<h6 id="（2）函数"><a href="#（2）函数" class="headerlink" title="（2）函数"></a><strong>（2）函数</strong></h6><p>函数返回<code>function</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function f() &#123;&#125;</span><br><span class="line">typeof f</span><br><span class="line">// &quot;function&quot;</span><br></pre></td></tr></table></figure>
+<h6 id="（3）undefined"><a href="#（3）undefined" class="headerlink" title="（3）undefined"></a><strong>（3）undefined</strong></h6><p><code>undefined</code>返回<code>undefined</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typeof undefined</span><br><span class="line">// &quot;undefined&quot;</span><br></pre></td></tr></table></figure>
+<p>利用这一点，typeof可以用来检查一个没有声明的变量，而不报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">v</span><br><span class="line">// ReferenceError: v is not defined</span><br><span class="line"></span><br><span class="line">typeof v</span><br><span class="line">// &quot;undefined&quot;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，变量<code>v</code>没有用<code>var</code>命令声明，直接使用就会报错。但是，放在<code>typeof</code>后面，就不报错了，而是返回<code>undefined</code>。</p>
+<p>实际编程中，这个特点通常用在判断语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 错误的写法</span><br><span class="line">if (v) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line">// ReferenceError: v is not defined</span><br><span class="line"></span><br><span class="line">// 正确的写法</span><br><span class="line">if (typeof v === &quot;undefined&quot;) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="（4）其他"><a href="#（4）其他" class="headerlink" title="（4）其他"></a><strong>（4）其他</strong></h6><p>除此以外，其他情况都返回<code>object</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typeof window // &quot;object&quot;</span><br><span class="line">typeof &#123;&#125; // &quot;object&quot;</span><br><span class="line">typeof [] // &quot;object&quot;</span><br><span class="line">typeof null // &quot;object&quot;</span><br></pre></td></tr></table></figure>
+<p>从上面代码可以看到，空数组（<code>[]</code>）的类型也是<code>object</code>，这表示在JavaScript内部，数组本质上只是一种特殊的对象。</p>
+<hr>
+<h5 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h5><p>（1）作用</p>
+<p>布尔值代表“真”和“假”两个状态。“真”用关键字<code>true</code>表示，“假”用关键字<code>false</code>表示。布尔值只有这两个值。</p>
+<p>（2）下列运算符会返回布尔值</p>
+<p>A、两元逻辑运算符： <code>&amp;&amp;</code> (and)，<code>||</code> (or)</p>
+<p>B、前置逻辑运算符： <code>!</code> (not)</p>
+<p>C、相等运算符：<code>===</code>，<code>!==</code>，<code>==</code>，<code>!=</code></p>
+<p>D、比较运算符：<code>&gt;</code>，<code>&gt;=</code>，<code>&lt;</code>，<code>&lt;=</code> 如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如：4&gt;3--&gt;true</span><br></pre></td></tr></table></figure>
+<p>（3）如果JavaScript预期某个位置应该是布尔值，会将该位置上现有的值自动转为布尔值。转换规则是除了下面六种值被转为false，其他值都视为true。</p>
+<ul>
+<li><code>undefined</code> –&gt; false</li>
+<li><code>null</code> –&gt;false</li>
+<li><code>false</code> –&gt;false</li>
+<li>+<code>0</code>，-0 ，NaN –&gt;false 【其他number（数字）为true】</li>
+<li><code>&quot;&quot;</code>或<code>&#39;&#39;</code>（空字符串）–&gt;false【其他string（字符串,包含” “空白字符串）为true】</li>
+</ul>
+<p>A、关于<strong>“”或’ ‘</strong>（空字符串）布尔值往往用于程序流程的控制，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">如：</span><br><span class="line">if (&apos;&apos;) &#123;</span><br><span class="line">  console.log(true);</span><br><span class="line">&#125;</span><br><span class="line">// 没有任何输出</span><br><span class="line">上面代码的if命令后面的判断条件，预期应该是一个布尔值，所以JavaScript自动将空字符串，</span><br><span class="line">转为布尔值false，导致程序不会进入代码块，所以没有任何输出。</span><br></pre></td></tr></table></figure>
+<p>B、空数组（<code>[]</code>）和空对象（<code>{}</code>）对应的布尔值，都是<code>true</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">如：</span><br><span class="line"><span class="keyword">if</span> ([]) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (&#123;&#125;) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><p>JavaScript中运算符主要用于连接简单表达式，组成一个复杂的表达式。 </p>
+<p>有些操作符对不同的数据类型有不同的含义，比如 <code>+</code></p>
+<ul>
+<li>在两个操作数都是数字的时候，会做加法运算</li>
+<li>两个参数都是字符串或在有一个参数是字符串的情况下会把另外一个参数转换为字符串做字符串拼接</li>
+<li>在参数有对象的情况下会调用其valueOf或toString</li>
+<li>在只有一个字符串参数的时候会尝试将其转换为数字</li>
+<li>在只有一个数字参数的时候返回其正数值</li>
+</ul>
+<hr>
+<h5 id="加法运算符"><a href="#加法运算符" class="headerlink" title="加法运算符"></a>加法运算符</h5><p>加法运算符（<code>+</code>）是最常见的运算符，用来求两个数值的和。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 + 1 // 2</span><br></pre></td></tr></table></figure>
+<p>JavaScript 允许非数值的相加。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">true + true // 2</span><br><span class="line">1 + true // 2</span><br></pre></td></tr></table></figure>
+<p>上面代码中，第一行是两个布尔值相加，第二行是数值与布尔值相加。这两种情况，布尔值都会自动转成数值，然后再相加。</p>
+<p>比较特殊的是，如果是两个字符串相加，这时加法运算符会变成连接运算符，返回一个新的字符串，将两个原字符串连接在一起。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;a&apos; + &apos;bc&apos; // &quot;abc&quot;</span><br></pre></td></tr></table></figure>
+<p>如果一个运算值是字符串，另一个运算值是非字符串，这时非字符串会转成字符串，再连接在一起。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 + &apos;a&apos; // &quot;1a&quot;</span><br><span class="line">false + &apos;a&apos; // &quot;falsea&quot;</span><br></pre></td></tr></table></figure>
+<p>加法运算符是在运行时决定，到底是执行相加，还是执行连接。也就是说，运算值的不同，导致了不同的语法行为，这种现象称为“重载”（overload）。由于加法运算符存在重载，可能执行两种运算，使用的时候必须很小心。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;3&apos; + 4 + 5 // &quot;345&quot;</span><br><span class="line">3 + 4 + &apos;5&apos; // &quot;75&quot;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，由于从左到右的运算次序，字符串的位置不同会导致不同的结果。</p>
+<p>除了加法运算符，其他算术运算符（比如减法、除法和乘法）都不会发生重载。它们的规则是：所有运算值一律转为数值，再进行相应的数学运算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 - &apos;2&apos; // -1</span><br><span class="line">1 * &apos;2&apos; // 2</span><br><span class="line">1 / &apos;2&apos; // 0.5</span><br></pre></td></tr></table></figure>
+<p>上面代码中，减法、除法和乘法运算符，都是将字符串自动转为数值，然后再运算。</p>
+<hr>
+<p>如果运算值是对象，必须先转成原始类型的值，然后再相加。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">p</span>: <span class="number">1</span> &#125;;</span><br><span class="line">obj + <span class="number">2</span> <span class="comment">// "[object Object]2"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，对象<code>obj</code>转成原始类型的值是<code>[object Object]</code>，再加<code>2</code>就得到了上面的结果。</p>
+<p>对象转成原始类型的值，规则如下。</p>
+<p>首先，自动调用对象的<code>valueOf</code>方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">p</span>: <span class="number">1</span> &#125;;</span><br><span class="line">obj.valueOf() <span class="comment">// &#123; p: 1 &#125;</span></span><br></pre></td></tr></table></figure>
+<p>一般来说，对象的<code>valueOf</code>方法总是返回对象自身，这时再自动调用对象的<code>toString</code>方法，将其转为字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">p</span>: <span class="number">1</span> &#125;;</span><br><span class="line">obj.valueOf().toString() <span class="comment">// "[object Object]"</span></span><br></pre></td></tr></table></figure>
+<p>对象的<code>toString</code>方法默认返回<code>[object Object]</code>，所以就得到了最前面那个例子的结果。</p>
+<p>知道了这个规则以后，就可以自己定义<code>valueOf</code>方法或<code>toString</code>方法，得到想要的结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj + <span class="number">2</span> <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，我们定义<code>obj</code>对象的<code>valueOf</code>方法返回<code>1</code>，于是<code>obj + 2</code>就得到了<code>3</code>。这个例子中，由于<code>valueOf</code>方法直接返回一个原始类型的值，所以不再调用<code>toString</code>方法。</p>
+<p>下面是自定义<code>toString</code>方法的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'hello'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj + <span class="number">2</span> <span class="comment">// "hello2"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，对象<code>obj</code>的<code>toString</code>方法返回字符串<code>hello</code>。前面说过，只要有一个运算值是字符串，加法运算符就变成连接运算符，返回连接后的字符串。</p>
+<p>这里有一个特例，如果运算值是一个<code>Date</code>对象的实例，那么会优先执行<code>toString</code>方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">obj.valueOf = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">1</span> &#125;;</span><br><span class="line">obj.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'hello'</span> &#125;;</span><br><span class="line"></span><br><span class="line">obj + <span class="number">2</span> <span class="comment">// "hello2"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，对象<code>obj</code>是一个<code>Date</code>对象的实例，并且自定义了<code>valueOf</code>方法和<code>toString</code>方法，结果<code>toString</code>方法优先执行。</p>
+<hr>
+<h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p>包括加法运算符在内，JavaScript 共提供10个算术运算符，用来完成基本的算术运算。</p>
+<ul>
+<li><strong>加法运算符</strong>：<code>x + y</code></li>
+<li><strong>减法运算符</strong>： <code>x - y</code></li>
+<li><strong>乘法运算符</strong>： <code>x * y</code></li>
+<li><strong>除法运算符</strong>：<code>x / y</code></li>
+<li><strong>指数运算符</strong>：<code>x ** y</code></li>
+<li><strong>余数运算符</strong>：<code>x % y</code></li>
+<li><strong>自增运算符</strong>：<code>++x</code> 或者 <code>x++</code></li>
+<li><strong>自减运算符</strong>：<code>--x</code> 或者 <code>x--</code></li>
+<li><strong>数值运算符</strong>： <code>+x</code></li>
+<li><strong>负数值运算符</strong>：<code>-x</code></li>
+</ul>
+<p>减法、乘法、除法运算法比较单纯，就是执行相应的数学运算。</p>
+<hr>
+<h5 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h5><p>赋值运算符（Assignment Operators）用于给变量赋值。</p>
+<p>最常见的赋值运算符，当然就是等号（<code>=</code>）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 将 1 赋值给变量 x</span><br><span class="line">var x = 1;</span><br><span class="line">// 将变量 y 的值赋值给变量 x</span><br><span class="line">var x = y;</span><br></pre></td></tr></table></figure>
+<p>赋值运算符还可以与其他运算符结合，形成变体。</p>
+<p>下面是与算术运算符的结合。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 等同于 x = x + y</span><br><span class="line">x += y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x - y</span><br><span class="line">x -= y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x * y</span><br><span class="line">x *= y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x / y</span><br><span class="line">x /= y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x % y</span><br><span class="line">x %= y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x ** y</span><br><span class="line">x **= y</span><br></pre></td></tr></table></figure>
+<p>下面是与位运算符的结合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 等同于 x = x &gt;&gt; y</span><br><span class="line">x &gt;&gt;= y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x &lt;&lt; y</span><br><span class="line">x &lt;&lt;= y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x &gt;&gt;&gt; y</span><br><span class="line">x &gt;&gt;&gt;= y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x &amp; y</span><br><span class="line">x &amp;= y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x | y</span><br><span class="line">x |= y</span><br><span class="line"></span><br><span class="line">// 等同于 x = x ^ y</span><br><span class="line">x ^= y</span><br></pre></td></tr></table></figure>
+<p>这些复合的赋值运算符，都是先进行指定运算，然后将得到值返回给左边的变量。</p>
+<hr>
+<h5 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h5><p>比较运算符用于比较两个值的大小，然后返回一个布尔值，表示是否满足指定的条件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 &gt; 1 // true</span><br></pre></td></tr></table></figure>
+<p>上面代码比较<code>2</code>是否大于<code>1</code>，返回<code>true</code>。</p>
+<p>注意，比较运算符可以比较各种类型的值，不仅仅是数值。</p>
+<p>JavaScript 一共提供了8个比较运算符。</p>
+<ul>
+<li><code>&lt;</code> 小于运算符</li>
+<li><code>&gt;</code> 大于运算符</li>
+<li><code>&lt;=</code> 小于或等于运算符</li>
+<li><code>&gt;=</code> 大于或等于运算符</li>
+<li><code>==</code> 相等运算符</li>
+<li><code>===</code> 严格相等运算符</li>
+<li><code>!=</code> 不相等运算符</li>
+<li><code>!==</code> 严格不相等运算符</li>
+</ul>
+<p>这八个比较运算符分成两类：相等比较和非相等比较。两者的规则是不一样的，对于非相等的比较，算法是先看两个运算子是否都是字符串，如果是的，就按照字典顺序比较（实际上是比较 Unicode 码点）；否则，将两个运算子都转成数值，再比较数值的大小。</p>
+<hr>
+<h5 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h5><p>布尔运算符用于将表达式转为布尔值，一共包含四个运算符。</p>
+<h6 id="取反运算符："><a href="#取反运算符：" class="headerlink" title="取反运算符：!"></a>取反运算符：<code>!</code></h6><p>取反运算符是一个感叹号，用于将布尔值变为相反值，即<code>true</code>变成<code>false</code>，<code>false</code>变成<code>true</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">!true // false</span><br><span class="line">!false // true</span><br><span class="line"></span><br><span class="line">对于非布尔值，取反运算符会将其转为布尔值。以下六个值取反后为true，其他值都为false：</span><br><span class="line">undefined</span><br><span class="line">null</span><br><span class="line">false</span><br><span class="line">0</span><br><span class="line">NaN</span><br><span class="line">空字符串（&apos;&apos;）</span><br></pre></td></tr></table></figure>
+<h6 id="且运算符：-amp-amp"><a href="#且运算符：-amp-amp" class="headerlink" title="且运算符：&amp;&amp;"></a>且运算符：<code>&amp;&amp;</code></h6><p>且运算符（<code>&amp;&amp;</code>）往往用于多个表达式的求值。</p>
+<p>它的运算规则是：如果第一个运算子的布尔值为<code>true</code>，则返回第二个运算子的值（注意是值，不是布尔值）；如果第一个运算子的布尔值为<code>false</code>，则直接返回第一个运算子的值，且不再对第二个运算子求值。</p>
+<h6 id="或运算符："><a href="#或运算符：" class="headerlink" title="或运算符：||"></a>或运算符：<code>||</code></h6><p>或运算符（<code>||</code>）也用于多个表达式的求值。它的运算规则是：如果第一个运算子的布尔值为<code>true</code>，则返回第一个运算子的值，且不再对第二个运算子求值；如果第一个运算子的布尔值为<code>false</code>，则返回第二个运算子的值。 </p>
+<h6 id="三元运算符："><a href="#三元运算符：" class="headerlink" title="三元运算符：?:"></a>三元运算符：<code>?:</code></h6><p>三元条件运算符由问号（?）和冒号（:）组成，分隔三个表达式。它是 JavaScript 语言唯一一个需要三个运算子的运算符。如果第一个表达式的布尔值为<code>true</code>，则返回第二个表达式的值，否则返回第三个表达式的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'t'</span> ? <span class="string">'hello'</span> : <span class="string">'world'</span> <span class="comment">// "hello"</span></span><br><span class="line"><span class="number">0</span> ? <span class="string">'hello'</span> : <span class="string">'world'</span> <span class="comment">// "world"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码的<code>t</code>和<code>0</code>的布尔值分别为<code>true</code>和<code>false</code>，所以分别返回第二个和第三个表达式的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">使用三元运算符表达：</span><br><span class="line"><span class="keyword">if</span> (a &gt; <span class="number">10</span>) &#123;</span><br><span class="line"> b = a</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line"> b = a - <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">答：b = a&gt;<span class="number">10</span>? a : a<span class="number">-2</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h5><ul>
+<li>或运算（or）：符号为<code>|</code>，表示两个二进制位中有一个为1，则结果为1，否则为0。</li>
+<li>与运算（and）：符号为<code>&amp;</code>，表示两个二进制位都为1，则结果为1，否则为0。</li>
+<li>否运算（not）：符号为<code>～</code>，表示将一个二进制位变成相反值。</li>
+<li>异或运算（xor）：符号为<code>ˆ</code>，表示两个二进制位中有且仅有一个为1时，结果为1，否则为0。</li>
+<li>左移运算（left shift）：符号为<code>&lt;&lt;</code></li>
+<li>右移运算（right shift）：符号为<code>&gt;&gt;</code></li>
+<li>带符号位的右移运算（zero filled right shift）：符号为<code>&gt;&gt;&gt;</code></li>
+</ul>
+<hr>
+<h5 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h5><p>逗号运算符用于对两个表达式求值，并返回后一个表达式的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a'</span>, <span class="string">'b'</span> <span class="comment">// "b"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> y = (x++, <span class="number">10</span>);</span><br><span class="line">x <span class="comment">// 1</span></span><br><span class="line">y <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，逗号运算符返回后一个表达式的值。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/30/重拾JavaScript/" rel="next" title="重拾JavaScript">
+                <i class="fa fa-chevron-left"></i> 重拾JavaScript
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="HsienFeng" />
+            
+              <p class="site-author-name" itemprop="name">HsienFeng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/getting-started.html" title="NexT主题" target="_blank">NexT主题</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#重拾JavaScript-一-基本概念"><span class="nav-number">1.</span> <span class="nav-text">重拾JavaScript(一)-基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语句"><span class="nav-number">1.1.1.</span> <span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#if语句"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#switch语句"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">switch语句</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#while和do-while"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">while和do-while</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#for-语句"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">for 语句</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#label语句"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">label语句</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释"><span class="nav-number">1.1.2.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量"><span class="nav-number">1.1.3.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标识符"><span class="nav-number">1.1.4.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关键字和保留字"><span class="nav-number">1.1.5.</span> <span class="nav-text">关键字和保留字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#区块"><span class="nav-number">1.1.6.</span> <span class="nav-text">区块</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#typeof运算符"><span class="nav-number">1.2.1.</span> <span class="nav-text">typeof运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（1）原始类型"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">（1）原始类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（2）函数"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">（2）函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（3）undefined"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">（3）undefined</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（4）其他"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">（4）其他</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#布尔值"><span class="nav-number">1.2.2.</span> <span class="nav-text">布尔值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符"><span class="nav-number">1.3.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#加法运算符"><span class="nav-number">1.3.1.</span> <span class="nav-text">加法运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#算术运算符"><span class="nav-number">1.3.2.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#赋值运算符"><span class="nav-number">1.3.3.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#比较运算符"><span class="nav-number">1.3.4.</span> <span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#布尔运算符"><span class="nav-number">1.3.5.</span> <span class="nav-text">布尔运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#取反运算符："><span class="nav-number">1.3.5.1.</span> <span class="nav-text">取反运算符：!</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#且运算符：-amp-amp"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">且运算符：&amp;&amp;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#或运算符："><span class="nav-number">1.3.5.3.</span> <span class="nav-text">或运算符：||</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三元运算符："><span class="nav-number">1.3.5.4.</span> <span class="nav-text">三元运算符：?:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#位运算符"><span class="nav-number">1.3.6.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逗号运算符"><span class="nav-number">1.3.7.</span> <span class="nav-text">逗号运算符</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HsienFeng</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+-->
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+</body>  
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+</html>
