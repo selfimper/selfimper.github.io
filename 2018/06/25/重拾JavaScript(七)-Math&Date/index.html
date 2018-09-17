@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+
+
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+  
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="重拾JavaScript(七)-Math&amp;amp;DateMathMath是 JavaScript 的原生对象，提供各种数学功能。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重拾JavaScript(七)-Math&amp;Date">
+<meta property="og:url" content="http://yoursite.com/2018/06/25/重拾JavaScript(七)-Math&Date/index.html">
+<meta property="og:site_name" content="HsienFeng">
+<meta property="og:description" content="重拾JavaScript(七)-Math&amp;amp;DateMathMath是 JavaScript 的原生对象，提供各种数学功能。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-16T08:08:04.542Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重拾JavaScript(七)-Math&amp;Date">
+<meta name="twitter:description" content="重拾JavaScript(七)-Math&amp;amp;DateMathMath是 JavaScript 的原生对象，提供各种数学功能。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/25/重拾JavaScript(七)-Math&Date/"/>
+
+
+
+
+
+  <title>重拾JavaScript(七)-Math&Date | HsienFeng</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HsienFeng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">经历的那些岁月，总该留下点痕迹。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/25/重拾JavaScript(七)-Math&Date/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HsienFeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HsienFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">重拾JavaScript(七)-Math&Date</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T13:36:11+08:00">
+                2018-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="重拾JavaScript-七-Math-amp-Date"><a href="#重拾JavaScript-七-Math-amp-Date" class="headerlink" title="重拾JavaScript(七)-Math&amp;Date"></a>重拾JavaScript(七)-Math&amp;Date</h1><h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><p><code>Math</code>是 JavaScript 的原生对象，提供各种数学功能。<br><a id="more"></a></p>
+<h4 id="Math对象的属性"><a href="#Math对象的属性" class="headerlink" title="Math对象的属性"></a>Math对象的属性</h4><p><code>Math</code>对象的静态属性，提供以下一些数学常数。（这些属性都是只读的）</p>
+<ul>
+<li><code>Math.E</code>：自然对数的底数，即常数<code>e</code>。</li>
+<li><code>Math.LN2</code>：2 的自然对数。</li>
+<li><code>Math.LN10</code>：10 的自然对数。</li>
+<li><code>Math.LOG2E</code>：以 2 为底的<code>e</code>的对数。</li>
+<li><code>Math.LOG10E</code>：以 10 为底的<code>e</code>的对数。</li>
+<li><code>Math.PI</code>：常数 π。</li>
+<li><code>Math.SQRT1_2</code>：1/2 的平方根（即2的平方根的倒数）。</li>
+<li><code>Math.SQRT2</code>：2 的平方根。</li>
+</ul>
+<h4 id="一些方法"><a href="#一些方法" class="headerlink" title="一些方法"></a>一些方法</h4><h6 id="min-和max"><a href="#min-和max" class="headerlink" title="min()和max()"></a>min()和max()</h6><p><code>Math.max</code>方法返回参数之中最大的那个值，<code>Math.min</code>返回最小的那个值。如果参数为空, <code>Math.min</code>返回<code>Infinity</code>, <code>Math.max</code>返回<code>-Infinity</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.max(<span class="number">2</span>, <span class="number">-1</span>, <span class="number">5</span>) <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">Math</span>.min(<span class="number">2</span>, <span class="number">-1</span>, <span class="number">5</span>) <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">Math</span>.min() <span class="comment">// Infinity</span></span><br><span class="line"><span class="built_in">Math</span>.max() <span class="comment">// -Infinity</span></span><br></pre></td></tr></table></figure>
+<h6 id="舍入方法：Math-ceil-Math-floor-Math-round"><a href="#舍入方法：Math-ceil-Math-floor-Math-round" class="headerlink" title="舍入方法：Math.ceil(), Math.floor(), Math.round()"></a>舍入方法：Math.ceil(), Math.floor(), Math.round()</h6><ul>
+<li>Math.ceil()执行向上舍入，即它总是将数值<strong>向上舍入</strong>为最接近的整数；</li>
+<li>Math.floor()执行向下舍入，即它总是将数值<strong>向下舍入</strong>为最接近的整数；</li>
+<li>Math.round()执行标准舍入，即它总是将数值<strong>四舍五入</strong>为最接近的整数；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.floor(<span class="number">3.2</span>) <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">Math</span>.floor(<span class="number">-3.2</span>) <span class="comment">// -4</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.ceil(<span class="number">3.2</span>) <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">Math</span>.ceil(<span class="number">-3.2</span>) <span class="comment">// -3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.round(<span class="number">0.1</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.round(<span class="number">0.5</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Math</span>.round(<span class="number">-1.5</span>) <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">Math</span>.round(<span class="number">-1.6</span>) <span class="comment">// -2</span></span><br></pre></td></tr></table></figure>
+<h6 id="random"><a href="#random" class="headerlink" title="random()"></a>random()</h6><p><code>Math.random()</code>返回0到1之间的一个伪随机数，可能等于0，但是一定小于1。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回给定范围内的随机数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandomArbitrary</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.random() * (max - min) + min;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回给定范围内的随机整数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandomInt</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h6><ul>
+<li><code>Math.abs()</code>：绝对值</li>
+<li><code>Math.pow()</code>：指数运算</li>
+<li><code>Math.sqrt()</code>：平方根</li>
+<li><code>Math.log()</code>：自然对数</li>
+<li><code>Math.exp()</code>：e的指数</li>
+<li><code>Math.sin()</code>：返回参数的正弦（参数为弧度值）</li>
+<li><code>Math.cos()</code>：返回参数的余弦（参数为弧度值）</li>
+<li><code>Math.tan()</code>：返回参数的正切（参数为弧度值）</li>
+<li><code>Math.asin()</code>：返回参数的反正弦（返回值为弧度值）</li>
+<li><code>Math.acos()</code>：返回参数的反余弦（返回值为弧度值）</li>
+<li><code>Math.atan()</code>：返回参数的反正切（返回值为弧度值）</li>
+</ul>
+<h4 id="实用示例："><a href="#实用示例：" class="headerlink" title="实用示例："></a>实用示例：</h4><p>写一个函数，生成一个随机 IP 地址，一个合法的 IP 地址为 <code>0.0.0.0</code>~<code>255.255.255.255</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandIP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ip = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        ip = ip + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">256</span>) + <span class="string">"."</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ip</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ip = getRandIP()</span><br><span class="line"><span class="built_in">console</span>.log(ip)</span><br></pre></td></tr></table></figure>
+<p>写一个函数，生成一个随机颜色字符串，合法的颜色为<code>#000000</code>~ <code>#ffffff</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandColor</span>(<span class="params">length</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">'#'</span></span><br><span class="line">    <span class="keyword">var</span> dict = <span class="string">'0123456789abcdef'</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> index = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * dict.length)</span><br><span class="line">        str += dict[index]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> color = getRandColor()</span><br><span class="line"><span class="built_in">console</span>.log(color);</span><br></pre></td></tr></table></figure>
+<p>写一个函数，生成一个长度为 n 的随机字符串，字符串字符的取值范围包括0到9，a到 z，A到Z。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandStr</span>(<span class="params">len</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</span></span><br><span class="line">    <span class="keyword">var</span> str2 = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= len; i++) &#123;</span><br><span class="line">        str2 = str2 + str[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">61</span>)]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str2</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getRandStr(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><p><code>Date</code>对象是 JavaScript 原生的时间库。它以1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。</p>
+<h4 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h4><h5 id="Date-now"><a href="#Date-now" class="headerlink" title="Date.now()"></a>Date.now()</h5><p><code>Date.now</code>方法返回当前时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数，相当于 Unix 时间戳乘以1000。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date.now() // 1537068255217</span><br></pre></td></tr></table></figure>
+<h5 id="Date-parse"><a href="#Date-parse" class="headerlink" title="Date.parse()"></a>Date.parse()</h5><p><code>Date.parse</code>方法用来解析日期字符串，返回该时间距离时间零点（1970年1月1日 00:00:00）的毫秒数。</p>
+<p>日期字符串应该符合 RFC 2822 和 ISO 8061 这两个标准，即<code>YYYY-MM-DDTHH:mm:ss.sssZ</code>格式，其中最后的<code>Z</code>表示时区。但是，其他格式也可以被解析，请看下面的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Date.parse(&apos;Aug 9, 1995&apos;)</span><br><span class="line">Date.parse(&apos;January 26, 2011 13:51:50&apos;)</span><br><span class="line">Date.parse(&apos;Mon, 25 Dec 1995 13:30:00 GMT&apos;)</span><br><span class="line">Date.parse(&apos;Mon, 25 Dec 1995 13:30:00 +0430&apos;)</span><br><span class="line">Date.parse(&apos;2011-10-10&apos;)</span><br><span class="line">Date.parse(&apos;2011-10-10T14:48:00&apos;)</span><br></pre></td></tr></table></figure>
+<p>上面的日期字符串都可以解析。</p>
+<p>如果解析失败，返回<code>NaN</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'xxx'</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<h5 id="Date-UTC"><a href="#Date-UTC" class="headerlink" title="Date.UTC()"></a>Date.UTC()</h5><p><code>Date.UTC</code>方法接受年、月、日等变量作为参数，返回该时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式</span></span><br><span class="line"><span class="built_in">Date</span>.UTC(year, month[, date[, hrs[, min[, sec[, ms]]]]])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用法</span></span><br><span class="line"><span class="built_in">Date</span>.UTC(<span class="number">2015</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">567</span>)</span><br><span class="line"><span class="comment">// 1420077784567</span></span><br></pre></td></tr></table></figure>
+<p>该方法的参数用法与<code>Date</code>构造函数完全一致，比如月从<code>0</code>开始计算，日期从<code>1</code>开始计算。区别在于<code>Date.UTC</code>方法的参数，会被解释为 UTC 时间（世界标准时间），<code>Date</code>构造函数的参数会被解释为当前时区的时间。</p>
+<hr>
+<h4 id="to类"><a href="#to类" class="headerlink" title="to类"></a>to类</h4><h6 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title=".toString()"></a><strong><code>.toString()</code></strong></h6><p>返回一个完整的日期字符串。</p>
+<h6 id="toUTCString"><a href="#toUTCString" class="headerlink" title=".toUTCString()"></a><strong><code>.toUTCString()</code></strong></h6><p>返回对应的 UTC 时间，也就是比北京时间晚8个小时。</p>
+<h6 id="toISOString"><a href="#toISOString" class="headerlink" title=".toISOString()"></a><strong><code>.toISOString()</code></strong></h6><p>返回对应时间的 ISO8601 写法。</p>
+<h6 id="toJSON"><a href="#toJSON" class="headerlink" title=".toJSON()"></a><strong><code>.toJSON()</code></strong></h6><p>返回一个符合 JSON 格式的 ISO 日期字符串，与<code>toISOString</code>方法的返回结果完全相同。</p>
+<h6 id="toDateString"><a href="#toDateString" class="headerlink" title=".toDateString()"></a><code>.toDateString()</code></h6><p>返回日期字符串（不含小时、分和秒）。</p>
+<h6 id="toTimeString"><a href="#toTimeString" class="headerlink" title=".toTimeString()"></a><strong><code>.toTimeString()</code></strong></h6><p>返回时间字符串（不含年月日）。</p>
+<h6 id="toLocaleDateString"><a href="#toLocaleDateString" class="headerlink" title=".toLocaleDateString()"></a><strong><code>.toLocaleDateString()</code></strong></h6><p>返回一个字符串，代表日期的当地写法（不含小时、分和秒）。</p>
+<h6 id="toLocaleTimeString"><a href="#toLocaleTimeString" class="headerlink" title=".toLocaleTimeString()"></a><strong><code>.toLocaleTimeString()</code></strong></h6><p>返回一个字符串，代表时间的当地写法（不含年月日）。</p>
+<hr>
+<h4 id="get类"><a href="#get类" class="headerlink" title="get类"></a>get类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">所有这些get方法返回的都是整数，不同方法返回值的范围不一样。</span><br><span class="line">- 分钟和秒：0 到 59</span><br><span class="line">- 小时：0 到 23</span><br><span class="line">- 星期：0（星期天）到 6（星期六）</span><br><span class="line">- 日期：1 到 31</span><br><span class="line">- 月份：0（一月）到 11（十二月）</span><br><span class="line">- 年份：距离1900年的年数</span><br></pre></td></tr></table></figure>
+<h6 id="getTime-："><a href="#getTime-：" class="headerlink" title="getTime()："></a><code>getTime()</code>：</h6><p>返回实例距离1970年1月1日00:00:00的毫秒数，等同于<code>valueOf</code>方法。</p>
+<h6 id="getDate-："><a href="#getDate-：" class="headerlink" title="getDate()："></a><code>getDate()</code>：</h6><p>返回实例对象对应每个月的几号（从1开始）。</p>
+<h6 id="getDay-："><a href="#getDay-：" class="headerlink" title="getDay()："></a><code>getDay()</code>：</h6><p>返回星期几，星期日为0，星期一为1，以此类推。</p>
+<h6 id="getYear-："><a href="#getYear-：" class="headerlink" title="getYear()："></a><code>getYear()</code>：</h6><p>返回距离1900的年数。</p>
+<h6 id="getFullYear-："><a href="#getFullYear-：" class="headerlink" title="getFullYear()："></a><code>getFullYear()</code>：</h6><p>返回四位的年份。</p>
+<h6 id="getMonth-："><a href="#getMonth-：" class="headerlink" title="getMonth()："></a><code>getMonth()</code>：</h6><p>返回月份（0表示1月，11表示12月）。</p>
+<h6 id="getHours-："><a href="#getHours-：" class="headerlink" title="getHours()："></a><code>getHours()</code>：</h6><p>返回小时（0-23）。</p>
+<h6 id="getMilliseconds-："><a href="#getMilliseconds-：" class="headerlink" title="getMilliseconds()："></a><code>getMilliseconds()</code>：</h6><p>返回毫秒（0-999）。</p>
+<h6 id="getMinutes-："><a href="#getMinutes-：" class="headerlink" title="getMinutes()："></a><code>getMinutes()</code>：</h6><p>返回分钟（0-59）。</p>
+<h6 id="getSeconds-："><a href="#getSeconds-：" class="headerlink" title="getSeconds()："></a><code>getSeconds()</code>：</h6><p>返回秒（0-59）。</p>
+<h6 id="getTimezoneOffset-："><a href="#getTimezoneOffset-：" class="headerlink" title="getTimezoneOffset()："></a><code>getTimezoneOffset()</code>：</h6><p>返回当前时间与 UTC 的时区差异，以分钟表示，返回结果考虑到了夏令时因素。</p>
+<hr>
+<h4 id="set类"><a href="#set类" class="headerlink" title="set类"></a>set类</h4><h6 id="setDate-date-："><a href="#setDate-date-：" class="headerlink" title="setDate(date)："></a><code>setDate(date)</code>：</h6><p>设置实例对象对应的每个月的几号（1-31），返回改变后毫秒时间戳。</p>
+<h6 id="setYear-year"><a href="#setYear-year" class="headerlink" title="setYear(year):"></a><code>setYear(year)</code>:</h6><p>设置距离1900年的年数。</p>
+<h6 id="setFullYear-year-month-date-："><a href="#setFullYear-year-month-date-：" class="headerlink" title="setFullYear(year [, month, date])："></a><code>setFullYear(year [, month, date])</code>：</h6><p>设置四位年份。</p>
+<h6 id="setHours-hour-min-sec-ms-："><a href="#setHours-hour-min-sec-ms-：" class="headerlink" title="setHours(hour [, min, sec, ms])："></a><code>setHours(hour [, min, sec, ms])</code>：</h6><p>设置小时（0-23）。</p>
+<h6 id="setMilliseconds-："><a href="#setMilliseconds-：" class="headerlink" title="setMilliseconds()："></a><code>setMilliseconds()</code>：</h6><p>设置毫秒（0-999）。</p>
+<h6 id="setMinutes-min-sec-ms-："><a href="#setMinutes-min-sec-ms-：" class="headerlink" title="setMinutes(min [, sec, ms])："></a><code>setMinutes(min [, sec, ms])</code>：</h6><p>设置分钟（0-59）。</p>
+<h6 id="setMonth-month-date-："><a href="#setMonth-month-date-：" class="headerlink" title="setMonth(month [, date])："></a><code>setMonth(month [, date])</code>：</h6><p>设置月份（0-11）。</p>
+<h6 id="setSeconds-sec-ms-："><a href="#setSeconds-sec-ms-：" class="headerlink" title="setSeconds(sec [, ms])："></a><code>setSeconds(sec [, ms])</code>：</h6><p>设置秒（0-59）。</p>
+<h6 id="setTime-milliseconds-："><a href="#setTime-milliseconds-：" class="headerlink" title="setTime(milliseconds)："></a><code>setTime(milliseconds)</code>：</h6><p>设置毫秒时间戳。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/22/重拾JavaScript(六)-数组/" rel="next" title="重拾JavaScript(六)-数组">
+                <i class="fa fa-chevron-left"></i> 重拾JavaScript(六)-数组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/02/JavaScript(八)-正则表达式/" rel="prev" title="JavaScript(八)-正则表达式">
+                JavaScript(八)-正则表达式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="HsienFeng" />
+            
+              <p class="site-author-name" itemprop="name">HsienFeng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/getting-started.html" title="NexT主题" target="_blank">NexT主题</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#重拾JavaScript-七-Math-amp-Date"><span class="nav-number">1.</span> <span class="nav-text">重拾JavaScript(七)-Math&amp;Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Math"><span class="nav-number">1.0.1.</span> <span class="nav-text">Math</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Math对象的属性"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">Math对象的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一些方法"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">一些方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#min-和max"><span class="nav-number">1.0.1.2.0.1.</span> <span class="nav-text">min()和max()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#舍入方法：Math-ceil-Math-floor-Math-round"><span class="nav-number">1.0.1.2.0.2.</span> <span class="nav-text">舍入方法：Math.ceil(), Math.floor(), Math.round()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#random"><span class="nav-number">1.0.1.2.0.3.</span> <span class="nav-text">random()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#其他方法"><span class="nav-number">1.0.1.2.0.4.</span> <span class="nav-text">其他方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实用示例："><span class="nav-number">1.0.1.3.</span> <span class="nav-text">实用示例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date"><span class="nav-number">1.0.2.</span> <span class="nav-text">Date</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态方法"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Date-now"><span class="nav-number">1.0.2.1.1.</span> <span class="nav-text">Date.now()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Date-parse"><span class="nav-number">1.0.2.1.2.</span> <span class="nav-text">Date.parse()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Date-UTC"><span class="nav-number">1.0.2.1.3.</span> <span class="nav-text">Date.UTC()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#to类"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">to类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#toString-NaN"><span class="nav-number">1.0.2.2.0.1.</span> <span class="nav-text">.toString()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#toUTCString"><span class="nav-number">1.0.2.2.0.2.</span> <span class="nav-text">.toUTCString()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#toISOString"><span class="nav-number">1.0.2.2.0.3.</span> <span class="nav-text">.toISOString()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#toJSON"><span class="nav-number">1.0.2.2.0.4.</span> <span class="nav-text">.toJSON()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#toDateString"><span class="nav-number">1.0.2.2.0.5.</span> <span class="nav-text">.toDateString()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#toTimeString"><span class="nav-number">1.0.2.2.0.6.</span> <span class="nav-text">.toTimeString()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#toLocaleDateString"><span class="nav-number">1.0.2.2.0.7.</span> <span class="nav-text">.toLocaleDateString()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#toLocaleTimeString"><span class="nav-number">1.0.2.2.0.8.</span> <span class="nav-text">.toLocaleTimeString()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#get类"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">get类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#getTime-："><span class="nav-number">1.0.2.3.0.1.</span> <span class="nav-text">getTime()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getDate-："><span class="nav-number">1.0.2.3.0.2.</span> <span class="nav-text">getDate()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getDay-："><span class="nav-number">1.0.2.3.0.3.</span> <span class="nav-text">getDay()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getYear-："><span class="nav-number">1.0.2.3.0.4.</span> <span class="nav-text">getYear()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getFullYear-："><span class="nav-number">1.0.2.3.0.5.</span> <span class="nav-text">getFullYear()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getMonth-："><span class="nav-number">1.0.2.3.0.6.</span> <span class="nav-text">getMonth()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getHours-："><span class="nav-number">1.0.2.3.0.7.</span> <span class="nav-text">getHours()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getMilliseconds-："><span class="nav-number">1.0.2.3.0.8.</span> <span class="nav-text">getMilliseconds()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getMinutes-："><span class="nav-number">1.0.2.3.0.9.</span> <span class="nav-text">getMinutes()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getSeconds-："><span class="nav-number">1.0.2.3.0.10.</span> <span class="nav-text">getSeconds()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getTimezoneOffset-："><span class="nav-number">1.0.2.3.0.11.</span> <span class="nav-text">getTimezoneOffset()：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set类"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">set类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#setDate-date-："><span class="nav-number">1.0.2.4.0.1.</span> <span class="nav-text">setDate(date)：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#setYear-year"><span class="nav-number">1.0.2.4.0.2.</span> <span class="nav-text">setYear(year):</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#setFullYear-year-month-date-："><span class="nav-number">1.0.2.4.0.3.</span> <span class="nav-text">setFullYear(year [, month, date])：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#setHours-hour-min-sec-ms-："><span class="nav-number">1.0.2.4.0.4.</span> <span class="nav-text">setHours(hour [, min, sec, ms])：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#setMilliseconds-："><span class="nav-number">1.0.2.4.0.5.</span> <span class="nav-text">setMilliseconds()：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#setMinutes-min-sec-ms-："><span class="nav-number">1.0.2.4.0.6.</span> <span class="nav-text">setMinutes(min [, sec, ms])：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#setMonth-month-date-："><span class="nav-number">1.0.2.4.0.7.</span> <span class="nav-text">setMonth(month [, date])：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#setSeconds-sec-ms-："><span class="nav-number">1.0.2.4.0.8.</span> <span class="nav-text">setSeconds(sec [, ms])：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#setTime-milliseconds-："><span class="nav-number">1.0.2.4.0.9.</span> <span class="nav-text">setTime(milliseconds)：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HsienFeng</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+-->
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+</body>  
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+</html>
