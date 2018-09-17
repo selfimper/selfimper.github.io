@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="HsienFeng">
 <meta property="og:description" content="JavaScript(八)-正则表达式正则表达式是用于匹配字符串中字符组合的模式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-17T15:07:39.758Z">
+<meta property="og:updated_time" content="2018-09-17T15:12:06.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript(八)-正则表达式">
 <meta name="twitter:description" content="JavaScript(八)-正则表达式正则表达式是用于匹配字符串中字符组合的模式。">
@@ -366,7 +366,45 @@
 <p>i：表示不区分大小写(case-insensitive)模式，即在确定匹配项时忽略模式与字符串的大小写。</p>
 <p>m：表示多行(multiline)模式，即在到达一行文本末尾时还会继续查找下一行中是否存在于模式匹配的项。</p>
 <h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><p>正则表达式中具有特殊意义的专用字符，可以用来规定其前导字符。正则表达式中的元字符包括：</p>
-<figure class="highlight plain"><figcaption><span>[ &#123; \ ^ $ | ? * + . &#125; ] )```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">不是每个元字符都有特定的意义，在不同的组合中元字符有不同的意义</span><br><span class="line"></span><br><span class="line">| 字符 | 含义       |</span><br><span class="line">| ---- | ---------- |</span><br><span class="line">| \t   | 水平制表符 |</span><br><span class="line">| \r   | 回车符     |</span><br><span class="line">| \n   | 换行符     |</span><br><span class="line">| \f   | 换页符     |</span><br><span class="line">| \v   | 垂直制表符 |</span><br><span class="line">| \0   | 空字符     |</span><br><span class="line"></span><br><span class="line">#### 字符类</span><br><span class="line"></span><br><span class="line">字符类（class）表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内，比如`[xyz]` 表示`x`、`y`、`z`之中任选一个匹配。</span><br><span class="line"></span><br><span class="line">例如：匹配一个数字（或大小写字母）</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">var reg =/[0-A9-c5-Bn-Z]/ig</span><br></pre></td></tr></table></figure>
+<p><code>( [ { \ ^ $ | ? * + . } ] )</code></p>
+<p>不是每个元字符都有特定的意义，在不同的组合中元字符有不同的意义</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\0</td>
+<td>空字符</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h4><p>字符类（class）表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内，比如<code>[xyz]</code> 表示<code>x</code>、<code>y</code>、<code>z</code>之中任选一个匹配。</p>
+<p>例如：匹配一个数字（或大小写字母）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg =<span class="regexp">/[0-A9-c5-Bn-Z]/ig</span></span><br></pre></td></tr></table></figure>
 <h4 id="预定义模式"><a href="#预定义模式" class="headerlink" title="预定义模式"></a>预定义模式</h4><p>预定义模式指的是某些常见模式的简写方式。</p>
 <table>
 <thead>
@@ -714,7 +752,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-八-正则表达式"><span class="nav-number">1.</span> <span class="nav-text">JavaScript(八)-正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建正则表达式"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修饰符"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">修饰符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配规则"><span class="nav-number">1.0.2.</span> <span class="nav-text">匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#元字符"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预定义模式"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">预定义模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#边界"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#量词匹配"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">量词匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#贪婪模式与非贪婪模式"><span class="nav-number">1.0.2.5.</span> <span class="nav-text">贪婪模式与非贪婪模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例属性"><span class="nav-number">1.0.3.</span> <span class="nav-text">实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法"><span class="nav-number">1.0.4.</span> <span class="nav-text">实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RegExp-prototype-test"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">RegExp.prototype.test()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RegExp-prototype-exec"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">RegExp.prototype.exec()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-prototype-match"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">String.prototype.match()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-prototype-search"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">String.prototype.search()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-prototype-replace"><span class="nav-number">1.0.4.5.</span> <span class="nav-text">String.prototype.replace()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实用示例"><span class="nav-number">1.0.5.</span> <span class="nav-text">实用示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资源"><span class="nav-number">1.0.6.</span> <span class="nav-text">资源</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-八-正则表达式"><span class="nav-number">1.</span> <span class="nav-text">JavaScript(八)-正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建正则表达式"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修饰符"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">修饰符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配规则"><span class="nav-number">1.0.2.</span> <span class="nav-text">匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#元字符"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符类"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">字符类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预定义模式"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">预定义模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#边界"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#量词匹配"><span class="nav-number">1.0.2.5.</span> <span class="nav-text">量词匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#贪婪模式与非贪婪模式"><span class="nav-number">1.0.2.6.</span> <span class="nav-text">贪婪模式与非贪婪模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例属性"><span class="nav-number">1.0.3.</span> <span class="nav-text">实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法"><span class="nav-number">1.0.4.</span> <span class="nav-text">实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RegExp-prototype-test"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">RegExp.prototype.test()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RegExp-prototype-exec"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">RegExp.prototype.exec()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-prototype-match"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">String.prototype.match()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-prototype-search"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">String.prototype.search()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-prototype-replace"><span class="nav-number">1.0.4.5.</span> <span class="nav-text">String.prototype.replace()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实用示例"><span class="nav-number">1.0.5.</span> <span class="nav-text">实用示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资源"><span class="nav-number">1.0.6.</span> <span class="nav-text">资源</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
