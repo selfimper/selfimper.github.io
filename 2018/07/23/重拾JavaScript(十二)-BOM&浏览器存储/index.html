@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+
+
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+  
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="重拾JavaScript(十二)-BOM&amp;amp;浏览器存储BOM对象BOM(Browser Object Model) 是指浏览器对象模型，是用于描述这种对象与对象之间层次关系的模型。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重拾JavaScript(十二)-BOM&amp;浏览器存储">
+<meta property="og:url" content="http://yoursite.com/2018/07/23/重拾JavaScript(十二)-BOM&浏览器存储/index.html">
+<meta property="og:site_name" content="HsienFeng">
+<meta property="og:description" content="重拾JavaScript(十二)-BOM&amp;amp;浏览器存储BOM对象BOM(Browser Object Model) 是指浏览器对象模型，是用于描述这种对象与对象之间层次关系的模型。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-24T12:05:13.471Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重拾JavaScript(十二)-BOM&amp;浏览器存储">
+<meta name="twitter:description" content="重拾JavaScript(十二)-BOM&amp;amp;浏览器存储BOM对象BOM(Browser Object Model) 是指浏览器对象模型，是用于描述这种对象与对象之间层次关系的模型。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/23/重拾JavaScript(十二)-BOM&浏览器存储/"/>
+
+
+
+
+
+  <title>重拾JavaScript(十二)-BOM&浏览器存储 | HsienFeng</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HsienFeng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">经历的那些岁月，总该留下点痕迹。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/重拾JavaScript(十二)-BOM&浏览器存储/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HsienFeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HsienFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">重拾JavaScript(十二)-BOM&浏览器存储</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T20:02:45+08:00">
+                2018-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="重拾JavaScript-十二-BOM-amp-浏览器存储"><a href="#重拾JavaScript-十二-BOM-amp-浏览器存储" class="headerlink" title="重拾JavaScript(十二)-BOM&amp;浏览器存储"></a>重拾JavaScript(十二)-BOM&amp;浏览器存储</h1><h2 id="BOM对象"><a href="#BOM对象" class="headerlink" title="BOM对象"></a>BOM对象</h2><p>BOM(Browser Object Model) 是指浏览器对象模型，是用于描述这种对象与对象之间层次关系的模型。<br><a id="more"></a></p>
+<h3 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h3><p>BOM 的核心是window对象，它表示浏览器的一个实例。在浏览器中，即是JavaScript访问浏览器窗口的一个接口，又是ECMAScript规定的Global对象，这就意味着在网页中定义的任意变量、函数、对象都是以window作为Global对象。</p>
+<blockquote>
+<p>所有在全局作用域中声明的变量、函数、对象都会作为window的属性和方法。</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">24</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayAge</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.age)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(<span class="built_in">window</span>.age) <span class="comment">//24</span></span><br><span class="line">sayAge() <span class="comment">//24</span></span><br><span class="line"><span class="built_in">window</span>.sayAge() <span class="comment">//24</span></span><br></pre></td></tr></table></figure>
+<h3 id="常用的window对象"><a href="#常用的window对象" class="headerlink" title="常用的window对象"></a>常用的window对象</h3><h4 id="window-innerHeight-amp-window-innerWidth"><a href="#window-innerHeight-amp-window-innerWidth" class="headerlink" title="window.innerHeight&amp;window.innerWidth"></a>window.innerHeight&amp;window.innerWidth</h4><p>这两个属性返回网页的CSS布局占据的浏览器窗口的高度和宽度，单位为像素。</p>
+<p>当用户放大网页的时候（比如将网页从100%的大小放大为200%），这两个属性会变小。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.innerHeight</span><br><span class="line"><span class="comment">//636</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.innerWidth</span><br><span class="line"><span class="comment">//708</span></span><br></pre></td></tr></table></figure>
+<h4 id="window-scrollTo-，window-scroll-，window-scrollBy"><a href="#window-scrollTo-，window-scroll-，window-scrollBy" class="headerlink" title="window.scrollTo()，window.scroll()，window.scrollBy()"></a>window.scrollTo()，window.scroll()，window.scrollBy()</h4><p><code>window.scrollTo</code>方法用于将文档滚动到指定位置。它接受两个参数，表示滚动后位于窗口左上角的页面坐标。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">300</span>); <span class="comment">// 滚动条移动到300px处</span></span><br></pre></td></tr></table></figure>
+<p><code>window.scroll()</code>方法是<code>window.scrollTo()</code>方法的别名。</p>
+<p><code>window.scrollBy()</code>方法用于将网页滚动指定距离（单位像素）。它接受两个参数：水平向右滚动的像素，垂直向下滚动的像素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.scrollBy(<span class="number">0</span>, <span class="built_in">window</span>.innerHeight)</span><br></pre></td></tr></table></figure>
+<p>上面代码用于将网页向下滚动一屏。</p>
+<h4 id="window-scrollX，window-scrollY"><a href="#window-scrollX，window-scrollY" class="headerlink" title="window.scrollX，window.scrollY"></a>window.scrollX，window.scrollY</h4><p><code>window.scrollX</code>属性返回页面的水平滚动距离，<code>window.scrollY</code>属性返回页面的垂直滚动距离，单位都为像素。这两个属性只读。</p>
+<h4 id="window-navigator"><a href="#window-navigator" class="headerlink" title="window.navigator"></a>window.navigator</h4><p>Window对象的navigator属性，指向一个包含浏览器相关信息的对象。</p>
+<p>navigator.userAgent属性返回浏览器的<code>User-Agent</code>字符串，用来标示浏览器的种类。</p>
+<h4 id="Screen"><a href="#Screen" class="headerlink" title="Screen"></a>Screen</h4><p>Screen 对象表示当前窗口所在的屏幕，提供显示设备的信息。<code>window.screen</code>属性指向这个对象。</p>
+<ul>
+<li><code>Screen.height</code>：浏览器窗口所在的屏幕的高度（单位像素）。除非调整显示器的分辨率，否则这个值可以看作常量，不会发生变化。显示器的分辨率与浏览器设置无关，缩放网页并不会改变分辨率。</li>
+<li><code>Screen.width</code>：浏览器窗口所在的屏幕的宽度（单位像素）。</li>
+<li><code>Screen.availHeight</code>：浏览器窗口可用的屏幕高度（单位像素）。因为部分空间可能不可用，比如系统的任务栏或者 Mac 系统屏幕底部的 Dock 区，这个属性等于<code>height</code>减去那些被系统组件的高度。</li>
+<li><code>Screen.availWidth</code>：浏览器窗口可用的屏幕宽度（单位像素）。</li>
+<li><code>Screen.pixelDepth</code>：整数，表示屏幕的色彩位数，比如<code>24</code>表示屏幕提供24位色彩。</li>
+<li><code>Screen.colorDepth</code>：<code>Screen.pixelDepth</code>的别名。严格地说，colorDepth 表示应用程序的颜色深度，pixelDepth 表示屏幕的颜色深度，绝大多数情况下，它们都是同一件事。</li>
+<li><code>Screen.orientation</code>：返回一个对象，表示屏幕的方向。该对象的<code>type</code>属性是一个字符串，表示屏幕的具体方向，<code>landscape-primary</code>表示横放，<code>landscape-secondary</code>表示颠倒的横放，<code>portrait-primary</code>表示竖放，<code>portrait-secondary</code>。</li>
+</ul>
+<h4 id="window-getComputedStyle"><a href="#window-getComputedStyle" class="headerlink" title="window.getComputedStyle"></a>window.getComputedStyle</h4><p><code>Window.getComputedStyle()</code>方法返回一个对象，该对象在应用活动样式表并解析这些值可能包含的任何基本计算后报告元素的所有CSS属性的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> style = <span class="built_in">window</span>.getComputedStyle(element, [pseudoElt]);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>element</p>
+<p> 用于获取计算样式的[<code>Element</code>]。</p>
+</li>
+<li><p>pseudoElt 可选</p>
+<p>指定一个要匹配的伪元素的字符串。必须对普通元素省略（或<code>null</code>）。</p>
+</li>
+</ul>
+<h4 id="URL-的编码和解码"><a href="#URL-的编码和解码" class="headerlink" title="URL 的编码和解码"></a>URL 的编码和解码</h4><p>JavaScript 提供四个 URL 的编码/解码方法。</p>
+<ul>
+<li><code>encodeURI()</code></li>
+<li><code>encodeURIComponent()</code></li>
+<li><code>decodeURI()</code></li>
+<li><code>decodeURIComponent()</code></li>
+</ul>
+<p><strong>区别</strong></p>
+<p>encodeURI方法<strong>不会</strong>对下列字符编码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. ASCII字母</span><br><span class="line">2. 数字</span><br><span class="line">3. ~!@#$&amp;*()=:/,;?+&apos;</span><br></pre></td></tr></table></figure>
+<p>encodeURIComponent方法<strong>不会</strong>对下列字符编码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. ASCII字母</span><br><span class="line">2. 数字</span><br><span class="line">3. ~!*()&apos;</span><br></pre></td></tr></table></figure>
+<p>所以encodeURIComponent比encodeURI编码的范围更大。</p>
+<h4 id="encodeURI"><a href="#encodeURI" class="headerlink" title="encodeURI()"></a>encodeURI()</h4><p><code>encodeURI()</code>方法用于转码整个 URL。它的参数是一个字符串，代表整个 URL。它会将元字符和语义字符之外的字符，都进行转义。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURI</span>(<span class="string">'http://www.example.com/首页'</span>)</span><br><span class="line"><span class="comment">//"http://www.example.com/%E9%A6%96%E9%A1%B5"</span></span><br></pre></td></tr></table></figure>
+<h4 id="encodeURIComponent"><a href="#encodeURIComponent" class="headerlink" title="encodeURIComponent()"></a>encodeURIComponent()</h4><p><code>encodeURIComponent()</code>方法用于转码 URL 的组成部分，会转码除了语义字符之外的所有字符，即元字符也会被转码。所以，它不能用于转码整个 URL。它接受一个参数，就是 URL 的片段。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURIComponent</span>(<span class="string">'首页'</span>)</span><br><span class="line"><span class="comment">//"%E9%A6%96%E9%A1%B5"</span></span><br></pre></td></tr></table></figure>
+<h4 id="decodeURI"><a href="#decodeURI" class="headerlink" title="decodeURI()"></a>decodeURI()</h4><p><code>decodeURI()</code>方法用于整个 URL 的解码。它是<code>encodeURI()</code>方法的逆运算。它接受一个参数，就是转码后的 URL。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">decodeURI</span>(<span class="string">'http://www.example.com/%E9%A6%96%E9%A1%B5'</span>)</span><br><span class="line"><span class="comment">//"http://www.example.com/首页"</span></span><br></pre></td></tr></table></figure>
+<h4 id="decodeURIComponent"><a href="#decodeURIComponent" class="headerlink" title="decodeURIComponent()"></a>decodeURIComponent()</h4><p><code>decodeURIComponent()</code>用于URL 片段的解码。它是<code>encodeURIComponent()</code>方法的逆运算。它接受一个参数，就是转码后的 URL 片段。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">decodeURIComponent</span>(<span class="string">'%E9%A6%96%E9%A1%B5'</span>)</span><br><span class="line"><span class="comment">//"首页"</span></span><br></pre></td></tr></table></figure>
+<h2 id="浏览器存储"><a href="#浏览器存储" class="headerlink" title="浏览器存储"></a>浏览器存储</h2><h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>Cookie 是服务器保存在浏览器的一小段文本信息，每个 Cookie 的大小一般不能超过4KB。浏览器每次向服务器发出请求，就会自动附上这段信息。</p>
+<h4 id="如何设置"><a href="#如何设置" class="headerlink" title="如何设置"></a>如何设置</h4><p>cookie可以使用 js 在浏览器直接设置（用于记录不敏感信息，如用户名）, 也可以在服务端通使用 HTTP 协议规定的 set-cookie 来让浏览器种下cookie，这是最常见的做法。</p>
+<p>每次向服务端发送请求，Cookies都会被带到HTTP中，即网络请求 Request headers 中都会带上cookie。如果 cookie 太多太大，造成负载太大，对传输效率会有影响。</p>
+<h4 id="设置cookie时的参数"><a href="#设置cookie时的参数" class="headerlink" title="设置cookie时的参数"></a>设置cookie时的参数</h4><ul>
+<li>path：表示 cookie 影响到的路径，匹配该路径才发送这个 cookie。</li>
+<li>expires 和 Max-Age：告诉浏览器 cookie 时候过期，</li>
+<li>Max-Age 是 cookie 多久后过期的相对时间。不设置这两个选项时会产生 session cookie，session cookie 是 transient 的，当用户关闭浏览器时，就被清除。一般用来保存 session 的 session_id。</li>
+<li>secure：当 secure 值为 true 时，cookie 在 HTTP 中是无效，在 HTTPS 中才有效</li>
+<li>HttpOnly：浏览器不允许脚本操作 document.cookie 去更改 cookie。一般情况下都应该设置这个为 true，这样可以避免被 xss 攻击拿到cookie。</li>
+</ul>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><ol>
+<li>localStorage HTML5本地存储web storage特性的API之一，用于将大量数据（最大5M）保存在浏览器中，保存后数据永远存在不会失效过期，除非用 js手动清除。</li>
+<li>不参与网络传输。</li>
+<li>一般用于性能优化，可以保存图片、js、css、html 模板、大量数据。</li>
+</ol>
+<h4 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h4><h5 id="Storage-setItem"><a href="#Storage-setItem" class="headerlink" title="Storage.setItem()"></a>Storage.setItem()</h5><p><code>Storage.setItem()</code>方法用于存入数据。它接受两个参数，第一个是键名，第二个是保存的数据。如果键名已经存在，该方法会更新已有的键值。该方法没有返回值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.sessionStorage.setItem(<span class="string">'key'</span>, <span class="string">'value'</span>);</span><br><span class="line"><span class="built_in">window</span>.localStorage.setItem(<span class="string">'key'</span>, <span class="string">'value'</span>);</span><br></pre></td></tr></table></figure>
+<p>注意，<code>Storage.setItem()</code>两个参数都是字符串。如果不是字符串，会自动转成字符串，再存入浏览器。</p>
+<h5 id="Storage-getItem"><a href="#Storage-getItem" class="headerlink" title="Storage.getItem()"></a>Storage.getItem()</h5><p><code>Storage.getItem()</code>方法用于读取数据。它只有一个参数，就是键名。如果键名不存在，该方法返回<code>null</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'key'</span>)</span><br><span class="line"><span class="built_in">window</span>.localStorage.getItem(<span class="string">'key'</span>)</span><br></pre></td></tr></table></figure>
+<p>键名应该是一个字符串，否则会被自动转为字符串。</p>
+<h5 id="Storage-removeItem"><a href="#Storage-removeItem" class="headerlink" title="Storage.removeItem()"></a>Storage.removeItem()</h5><p><code>Storage.removeItem()</code>方法用于清除某个键名对应的键值。它接受键名作为参数，如果键名不存在，该方法不会做任何事情。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.removeItem(<span class="string">'key'</span>);</span><br><span class="line">localStorage.removeItem(<span class="string">'key'</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Storage-clear"><a href="#Storage-clear" class="headerlink" title="Storage.clear()"></a>Storage.clear()</h5><p><code>Storage.clear()</code>方法用于清除所有保存的数据。该方法的返回值是<code>undefined</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.sessionStorage.clear()</span><br><span class="line"><span class="built_in">window</span>.localStorage.clear()</span><br></pre></td></tr></table></figure>
+<p>SessionStorage和LocalStorage接口类似，但是SessionStorage仅在当前会话下有效，关闭页面或浏览器后被清除。</p>
+<h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><p>1、Session是一种特殊的Cookies，用于识别用户。</p>
+<p>cookie 虽然很方便，但是使用 cookie 有一个很大的弊端，cookie 中的所有数据在客户端就可以被修改，数据非常容易被伪造，那么一些重要的数据就不能存放在 cookie 中了，而且如果 cookie 中数据字段太多会影响传输效率。为了解决这些问题，就产生了 session，<strong>session 中的数据是保留在服务器端的</strong>。</p>
+<p>当一个用户打开淘宝登录后，刷新浏览器仍然展示登录状态。服务器如何分辨这次发起请求的用户是刚才登录过的用户呢？这里就使用了session保存状态。</p>
+<p>用户在输入用户名密码提交给服务端，服务端验证通过后会创建一个session，用于记录用户的相关信息，这个 session 可保存在服务器内存中，也可保存在数据库中。</p>
+<p>2、session 的运作通过一个<code>session_id</code>来进行。</p>
+<ul>
+<li><p>创建session后，会把关联的session_id 通过set-cookie 添加到http响应头部中。</p>
+</li>
+<li><p>浏览器在加载页面时发现响应头部有 set-cookie字段，就把这个cookie 种到浏览器指定域名下。</p>
+</li>
+<li><p>当下次刷新页面时，发送的请求会带上这条cookie， 服务端在接收到后根据这个session_id来识别用户。</p>
+<blockquote>
+<p>cookie 是存储在浏览器里的一小段「数据」，而session是一种让服务器能识别某个用户的「机制」，session 在实现的过程中需要使用cookie。当然有时候说到 session 也指服务器里创建的那个和用户身份关联的对象。</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/18/重拾JavaScript(十一)-事件/" rel="next" title="重拾JavaScript(十一)-事件">
+                <i class="fa fa-chevron-left"></i> 重拾JavaScript(十一)-事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="HsienFeng" />
+            
+              <p class="site-author-name" itemprop="name">HsienFeng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://theme-next.iissnan.com/getting-started.html" title="NexT主题" target="_blank">NexT主题</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#重拾JavaScript-十二-BOM-amp-浏览器存储"><span class="nav-number">1.</span> <span class="nav-text">重拾JavaScript(十二)-BOM&amp;浏览器存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM对象"><span class="nav-number">1.1.</span> <span class="nav-text">BOM对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#window对象"><span class="nav-number">1.1.1.</span> <span class="nav-text">window对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的window对象"><span class="nav-number">1.1.2.</span> <span class="nav-text">常用的window对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#window-innerHeight-amp-window-innerWidth"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">window.innerHeight&amp;window.innerWidth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-scrollTo-，window-scroll-，window-scrollBy"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">window.scrollTo()，window.scroll()，window.scrollBy()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-scrollX，window-scrollY"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">window.scrollX，window.scrollY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-navigator"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">window.navigator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Screen"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">Screen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-getComputedStyle"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">window.getComputedStyle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-的编码和解码"><span class="nav-number">1.1.2.7.</span> <span class="nav-text">URL 的编码和解码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#encodeURI"><span class="nav-number">1.1.2.8.</span> <span class="nav-text">encodeURI()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#encodeURIComponent"><span class="nav-number">1.1.2.9.</span> <span class="nav-text">encodeURIComponent()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#decodeURI"><span class="nav-number">1.1.2.10.</span> <span class="nav-text">decodeURI()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#decodeURIComponent"><span class="nav-number">1.1.2.11.</span> <span class="nav-text">decodeURIComponent()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器存储"><span class="nav-number">1.2.</span> <span class="nav-text">浏览器存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">1.2.1.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何设置"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">如何设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置cookie时的参数"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">设置cookie时的参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage"><span class="nav-number">1.2.2.</span> <span class="nav-text">localStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性和方法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Storage-setItem"><span class="nav-number">1.2.2.1.1.</span> <span class="nav-text">Storage.setItem()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Storage-getItem"><span class="nav-number">1.2.2.1.2.</span> <span class="nav-text">Storage.getItem()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Storage-removeItem"><span class="nav-number">1.2.2.1.3.</span> <span class="nav-text">Storage.removeItem()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Storage-clear"><span class="nav-number">1.2.2.1.4.</span> <span class="nav-text">Storage.clear()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#session"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">session</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HsienFeng</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+-->
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+</body>  
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+</html>
