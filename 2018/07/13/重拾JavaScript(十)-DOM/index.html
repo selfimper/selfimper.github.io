@@ -403,7 +403,7 @@
 <hr>
 <h3 id="创建元素："><a href="#创建元素：" class="headerlink" title="创建元素："></a>创建元素：</h3><h3 id="createElement"><a href="#createElement" class="headerlink" title="createElement()"></a>createElement()</h3><p>创建一个新的元素放到页面上，用此方法创建并传入html的元素标签，创建一个虚拟的dom。该dom的节点存在内存里，并没有放在页面上，用户看不见。</p>
 <p>如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">--&gt; &lt;div&gt;&lt;/div&gt;</span><br><span class="line"><span class="comment">//可赋值一个变量，之后可通过该变量轻松获取</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">--&gt; <span class="literal">undefined</span></span><br><span class="line">div</span><br><span class="line">--&gt; &lt;div&gt;&lt;/div&gt;</span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>)</span><br><span class="line">--&gt; <span class="literal">undefined</span></span><br><span class="line">div</span><br><span class="line">--&gt;  &lt;img&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">--&gt; <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="comment">//可赋值一个变量，之后可通过该变量轻松获取</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">--&gt; <span class="literal">undefined</span></span><br><span class="line">div</span><br><span class="line">--&gt; <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>)</span><br><span class="line">--&gt; <span class="literal">undefined</span></span><br><span class="line">div</span><br><span class="line">--&gt;  <span class="xml"><span class="tag">&lt;<span class="name">img</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="createTextNode"><a href="#createTextNode" class="headerlink" title="createTextNode()"></a>createTextNode()</h3><p>光出现元素标签还不够，我们可通过createTextNode()去生成一个文本，将文本的内容放入元素中，如：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="built_in">document</span>.createTextNode(<span class="string">'tennant'</span>)</span><br><span class="line">--&gt; <span class="literal">undefined</span></span><br><span class="line">text</span><br><span class="line">--&gt; <span class="string">"tennant"</span></span><br></pre></td></tr></table></figure>
 <h3 id="createDocumentFragment"><a href="#createDocumentFragment" class="headerlink" title="createDocumentFragment()"></a>createDocumentFragment()</h3><p>该方法用来<strong>生成一个存在于内存的dom片段，</strong>但不属于当前文档。即不会生成一个标签，虚拟生成，常用于生成复杂的dom结构，然后插入当前文档。</p>
@@ -571,7 +571,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -593,7 +593,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
